@@ -10,7 +10,7 @@ rows covering 326 issuers across 3 markets.
 Every number in the output is computed by SQL and a set of explicit rules. No
 language model is involved in deciding anything.
 
-**[Read the report &rarr;](https://kaavyadhir.github.io/denial-intelligence/)**
+**[Read the report &rarr;](https://kaavyadhir.github.io/Denial-intelligence/)**
 
 ---
 
