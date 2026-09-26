@@ -6,6 +6,7 @@ from app.outliers import (
     exceeds_by_more_than_chance,
     find_outliers,
     modified_z_scores,
+    standard_errors_above,
 )
 
 
@@ -153,3 +154,22 @@ def test_too_few_expected_counts_for_the_normal_approximation():
     """10 appeals against a 0.43 baseline expects 4.3 overturns - below the
     conventional minimum of 5, so the approximation is not trusted."""
     assert not exceeds_by_more_than_chance(0.9, MEDIAN, 10)
+
+
+def test_standard_errors_above_reports_the_margin():
+    """The report prints this number; the rule thresholds it. One implementation."""
+    assert standard_errors_above(0.47, MEDIAN, 1730) == pytest.approx(3.4, abs=0.1)
+
+
+def test_standard_errors_above_is_none_when_untestable():
+    """None, not 0.0 - a comparison that could not be made is not a tie."""
+    assert standard_errors_above(0.47, MEDIAN, 0) is None
+    assert standard_errors_above(None, MEDIAN, 100) is None
+
+
+def test_the_rule_and_the_margin_agree():
+    """Whatever the threshold, the boolean must match the number it comes from."""
+    for appeals in (12, 40, 48, 342, 1730):
+        score = standard_errors_above(0.47, MEDIAN, appeals)
+        expected = score is not None and score > 1.645
+        assert exceeds_by_more_than_chance(0.47, MEDIAN, appeals) == expected

@@ -75,6 +75,33 @@ def modified_z_scores(values: list[float]) -> np.ndarray:
     return SCALE * (array - median) / mad
 
 
+def standard_errors_above(
+    rate: float | None,
+    baseline: float | None,
+    sample_size: int | None,
+) -> float | None:
+    """How many standard errors `rate` sits above `baseline`, or None.
+
+    One-sided comparison of a proportion against a fixed baseline, using the
+    normal approximation to the binomial.
+
+    None means the comparison could not be made at all: no data, an empty
+    sample, a degenerate baseline, or too few expected counts for the
+    approximation to hold. That is deliberately not 0.0 - a comparison that
+    could not be made must not be mistaken for one that came out even.
+    """
+    if rate is None or baseline is None or not sample_size:
+        return None
+    if not 0.0 < baseline < 1.0:
+        # No spread to test against; every deviation would look infinite.
+        return None
+    if min(baseline, 1.0 - baseline) * sample_size < MIN_EXPECTED_COUNT:
+        return None
+
+    standard_error = math.sqrt(baseline * (1.0 - baseline) / sample_size)
+    return (rate - baseline) / standard_error
+
+
 def exceeds_by_more_than_chance(
     rate: float | None,
     baseline: float | None,
@@ -83,29 +110,17 @@ def exceeds_by_more_than_chance(
 ) -> bool:
     """Is `rate` above `baseline` by more than sampling noise would explain?
 
-    One-sided test of a proportion against a fixed baseline, using the normal
-    approximation to the binomial.
-
     The question this answers, concretely: one insurer overturned 71% of 48
     appeals, another 47% of 342. Both are above the market median of 42.5%, but
     only one of those gaps is too large to be chance. Treating them as the same
     evidence would let a handful of appeals carry a finding.
 
-    Returns False - not an exception - whenever the test cannot be run at all:
-    no data, an empty sample, a degenerate baseline, or too few expected counts
-    for the approximation to hold. A test that could not be run is not evidence,
-    and the caller should not be able to mistake it for a passing one.
+    Returns False - not an exception - whenever the test cannot be run at all.
+    A test that could not be run is not evidence, and the caller should not be
+    able to mistake it for a passing one.
     """
-    if rate is None or baseline is None or not sample_size:
-        return False
-    if not 0.0 < baseline < 1.0:
-        # No spread to test against; every deviation would look infinite.
-        return False
-    if min(baseline, 1.0 - baseline) * sample_size < MIN_EXPECTED_COUNT:
-        return False
-
-    standard_error = math.sqrt(baseline * (1.0 - baseline) / sample_size)
-    return (rate - baseline) / standard_error > z_threshold
+    score = standard_errors_above(rate, baseline, sample_size)
+    return score is not None and score > z_threshold
 
 
 def find_outliers(

@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denial Intelligence</title>
+<meta name="description" content="Health insurers whose claim-denial behaviour is abnormal for their own market, from CMS Transparency in Coverage data.">
+<style>
+  :root {
+    color-scheme: light;
+    --plane:        #f9f9f7;
+    --surface:      #fcfcfb;
+    --ink:          #0b0b0b;
+    --ink-2:        #52514e;
+    --muted:        #898781;
+    --grid:         #e1e0d9;
+    --axis:         #c3c2b7;
+    --critical:     #d03b3b;
+    --warning:      #fab219;
+    --warning-ink:  #7a5200;
+    --border:       rgba(11, 11, 11, 0.10);
+    --shadow:       0 1px 2px rgba(11, 11, 11, 0.05);
+    --dot:          #b8b6ae;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:        #0d0d0d;
+      --surface:      #1a1a19;
+      --ink:          #ffffff;
+      --ink-2:        #c3c2b7;
+      --muted:        #898781;
+      --grid:         #2c2c2a;
+      --axis:         #383835;
+      --warning-ink:  #fab219;
+      --border:       rgba(255, 255, 255, 0.10);
+      --shadow:       none;
+      --dot:          #4a4a46;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:        #0d0d0d;
+    --surface:      #1a1a19;
+    --ink:          #ffffff;
+    --ink-2:        #c3c2b7;
+    --muted:        #898781;
+    --grid:         #2c2c2a;
+    --axis:         #383835;
+    --warning-ink:  #fab219;
+    --border:       rgba(255, 255, 255, 0.10);
+    --shadow:       none;
+    --dot:          #4a4a46;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--ink);
+    font: 15px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 56px 16px 80px; }
+
+  header { margin-bottom: 40px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .lede { color: var(--ink-2); max-width: 62ch; margin: 0 0 14px; }
+  .meta { color: var(--muted); font-size: 13px; margin: 0; }
+  .meta a { color: inherit; }
+
+  h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; margin: 0 0 6px;
+  }
+  .section { margin-top: 48px; }
+  .section > p { color: var(--ink-2); max-width: 66ch; margin: 0 0 20px; }
+  .section-title { font-size: 20px; margin: 0 0 8px; letter-spacing: -0.01em; }
+
+  /* --- stat tiles ------------------------------------------------------ */
+  .tiles {
+    display: grid; gap: 10px; margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px; box-shadow: var(--shadow);
+  }
+  .tile dt { font-size: 12.5px; color: var(--muted); margin: 0 0 6px; }
+  .tile dd { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .tile .sub { font-size: 12.5px; color: var(--ink-2); font-weight: 400; margin-top: 2px; }
+
+  /* --- finding cards --------------------------------------------------- */
+  .tier { margin-top: 28px; }
+  .tier-head { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 4px; }
+  .tier-name { font-size: 16px; font-weight: 600; margin: 0; }
+  .tier-note { color: var(--ink-2); font-size: 14px; margin: 0 0 14px; max-width: 66ch; }
+
+  .badge {
+    flex: none; width: 18px; height: 18px; border-radius: 50%; margin-top: 3px;
+    display: grid; place-items: center; font-size: 11px; font-weight: 700;
+    color: #fff;
+  }
+  .badge.critical { background: var(--critical); }
+  .badge.warning  { background: var(--warning); color: #3d2900; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--tone); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 10px; box-shadow: var(--shadow);
+  }
+  .card.critical { --tone: var(--critical); }
+  .card.warning  { --tone: var(--warning); }
+  .card h3 { margin: 0 0 2px; font-size: 16px; font-weight: 600; }
+  .card .where { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+  .card dl {
+    display: grid; gap: 10px 22px; margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  }
+  .card .field { min-width: 0; }
+  .card dt { font-size: 12px; color: var(--muted); margin-bottom: 1px; }
+  .card dd { margin: 0; font-size: 15px; font-variant-numeric: tabular-nums; }
+  .card dd .qual { color: var(--ink-2); font-size: 12.5px; }
+  .card .verdict {
+    margin: 12px 0 0; padding-top: 11px; border-top: 1px solid var(--border);
+    font-size: 13.5px; color: var(--ink-2);
+  }
+
+  /* --- charts ----------------------------------------------------------- */
+  figure {
+    margin: 0; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 18px 14px; box-shadow: var(--shadow);
+  }
+  figcaption { color: var(--ink-2); font-size: 13.5px; margin-top: 12px; max-width: 70ch; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .row-label { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+  .row-sub   { font-size: 11.5px; fill: var(--muted); }
+  .tick      { font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+  .axis-title{ font-size: 11.5px; fill: var(--muted); }
+  .pt-label  { font-size: 11px; fill: var(--ink); font-weight: 600; }
+  .pt-label.dim { fill: var(--warning-ink); }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 14px;
+    font-size: 12.5px; color: var(--ink-2); list-style: none; padding: 0;
+  }
+  .legend li { display: flex; align-items: center; gap: 7px; }
+  .swatch { width: 11px; height: 11px; flex: none; }
+  .swatch.dot  { border-radius: 50%; background: var(--dot); }
+  .swatch.crit { border-radius: 50%; background: var(--critical); }
+  .swatch.warn { background: var(--warning); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+  .swatch.line { width: 20px; height: 2px; background: var(--critical); opacity: .6; }
+  .swatch.dash {
+    width: 20px; height: 0; border-top: 2px dotted var(--axis); background: none;
+  }
+
+  .tip {
+    position: fixed; pointer-events: none; opacity: 0; transition: opacity .1s;
+    background: var(--ink); color: var(--plane); border-radius: 7px;
+    padding: 8px 10px; font-size: 12.5px; line-height: 1.45; max-width: 250px;
+    z-index: 10; box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  }
+  .tip b { font-weight: 600; }
+  .tip .n { font-variant-numeric: tabular-nums; }
+
+  /* --- method ----------------------------------------------------------- */
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; }
+  .steps > li {
+    counter-increment: s; position: relative; padding-left: 38px; margin-bottom: 22px;
+  }
+  .steps > li::before {
+    content: counter(s); position: absolute; left: 0; top: 0;
+    width: 25px; height: 25px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+  }
+  .steps h3 { margin: 2px 0 5px; font-size: 15.5px; font-weight: 600; }
+  .steps p { margin: 0; color: var(--ink-2); font-size: 14px; max-width: 64ch; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; margin-top: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase;
+       letter-spacing: 0.05em; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  caption { text-align: left; color: var(--ink-2); font-size: 13.5px; padding-bottom: 8px; }
+
+  details { margin-top: 14px; }
+  summary { cursor: pointer; color: var(--ink-2); font-size: 13.5px; }
+  summary:hover { color: var(--ink); }
+
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 13px;
+  }
+  footer a { color: var(--ink-2); }
+
+  @media (max-width: 560px) {
+    .wrap { padding-top: 36px; }
+    h1 { font-size: 25px; }
+    .card dl { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Denial Intelligence</h1>
+  <p class="lede">
+    Health insurers whose claim-denial behaviour is abnormal <em>for their own
+    market</em> &mdash; and, where the data allows it, whether their members won
+    when they appealed.
+  </p>
+  <p class="meta" id="meta"></p>
+</header>
+
+<section aria-labelledby="scope-h">
+  <h2 id="scope-h">Scope</h2>
+  <dl class="tiles" id="tiles"></dl>
+</section>
+
+<section class="section" aria-labelledby="findings-h">
+  <h2 id="findings-h">Findings</h2>
+  <p class="section-title" id="findings-title"></p>
+  <p id="findings-lede"></p>
+  <div id="findings"></div>
+</section>
+
+<section class="section" aria-labelledby="spread-h">
+  <h2 id="spread-h">Why the comparison is within market</h2>
+  <p class="section-title">Dental insurers deny twice as often as medical ones, normally.</p>
+  <p>
+    The first version of this ranked every insurer together and returned a list
+    that was entirely dental plans. Dental is not scandalous; it is just
+    different. Ranking across markets finds the <em>market</em>, not the outlier.
+  </p>
+  <figure>
+    <ul class="legend">
+      <li><span class="swatch dot"></span> One insurer</li>
+      <li><span class="swatch crit"></span> Denied more, and lost the appeals</li>
+      <li><span class="swatch warn"></span> Extreme denial rate</li>
+    </ul>
+    <div id="spread"></div>
+    <figcaption id="spread-cap"></figcaption>
+  </figure>
+</section>
+
+<section class="section" aria-labelledby="funnel-h">
+  <h2 id="funnel-h">Why &ldquo;above the median&rdquo; is not enough</h2>
+  <p class="section-title">A rate measured over 40 appeals is not the same evidence as one measured over 1,730.</p>
+  <p>
+    Every insurer below files a different number of appeals. Being a few points
+    above the market&rsquo;s overturn rate is strong evidence over thousands of
+    appeals and meaningless over a few dozen. The curve is the line a rate has to
+    clear to count as corroboration &mdash; it tightens as the sample grows.
+  </p>
+  <figure>
+    <ul class="legend">
+      <li><span class="swatch dot"></span> One insurer</li>
+      <li><span class="swatch crit"></span> Corroborated</li>
+      <li><span class="swatch line"></span> Corroboration boundary</li>
+      <li><span class="swatch dash"></span> Market median</li>
+    </ul>
+    <div id="funnel"></div>
+    <figcaption id="funnel-cap"></figcaption>
+  </figure>
+  <details>
+    <summary>Show these insurers as a table</summary>
+    <div id="funnel-table"></div>
+  </details>
+</section>
+
+<section class="section" aria-labelledby="method-h">
+  <h2 id="method-h">Method</h2>
+  <p class="section-title">Four decisions, each of which changed the output.</p>
+  <ol class="steps">
+    <li>
+      <h3>Compare inside a market</h3>
+      <p>
+        Each insurer is scored against peers in the same market only. A market
+        needs at least <span id="m-peers"></span> insurers before &ldquo;unusual&rdquo;
+        means anything, which excludes SHOP entirely.
+      </p>
+    </li>
+    <li>
+      <h3>Collapse issuer-wide figures before comparing</h3>
+      <p>
+        Claim counts are reported per issuer, not per plan, and repeat on every
+        row. Grouping the obvious way entered one insurer three times and
+        compared its whole national book against a handful of peers. Each issuer
+        is collapsed to one row per state and attributed to the market where it
+        sells the most plans.
+      </p>
+    </li>
+    <li>
+      <h3>Median and MAD, not mean and standard deviation</h3>
+      <p>
+        Outliers inflate the standard deviation, which raises the very threshold
+        meant to catch them. With six insurers planted at 45&ndash;58%, the
+        modified z-score catches all six and the ordinary one catches none.
+      </p>
+    </li>
+    <li>
+      <h3>Two thresholds, and a second signal that has to be real</h3>
+      <p>
+        A modified z above <span id="m-outlier"></span> is reportable on the
+        denial rate alone. Above <span id="m-watch"></span> it is reportable only
+        when the appeal record corroborates it &mdash; and corroboration is a
+        one-sided significance test, not a larger number. On this data the test
+        changed no findings; the narrowest cleared it by
+        <span id="m-narrow"></span> standard errors. That is the point: it is
+        what keeps next year&rsquo;s twelve-appeal fluke out.
+      </p>
+    </li>
+  </ol>
+</section>
+
+<section class="section" aria-labelledby="limits-h">
+  <h2 id="limits-h">What this does not show</h2>
+  <p>
+    One year of data, in-network claims only, and every figure is self-reported
+    by the insurer to CMS &mdash; an insurer that under-reports denials looks
+    better here. A high denial rate is not proof of wrongdoing: it can reflect a
+    sicker population, a stricter benefit design, or accurate adjudication of bad
+    claims. That is precisely why the appeal outcome is required before the
+    strongest label is used, and why the other tier is named for what is actually
+    known rather than what is implied.
+  </p>
+</section>
+
+<footer>
+  <p id="foot"></p>
+</footer>
+
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = __REPORT_DATA__;
+
+const SVG = "http://www.w3.org/2000/svg";
+const pct  = (v, d = 1) => (v * 100).toFixed(d) + "%";
+const num  = (v) => v.toLocaleString("en-US");
+const el   = (tag, attrs = {}, text) => {
+  const node = document.createElementNS(SVG, tag);
+  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+  if (text !== undefined) node.textContent = text;
+  return node;
+};
+
+/* ---------- header, tiles ------------------------------------------- */
+const t = DATA.totals;
+document.getElementById("meta").textContent =
+  DATA.source + " · generated " + DATA.generated;
+document.getElementById("foot").innerHTML =
+  "Source: Centers for Medicare &amp; Medicaid Services, <em>Transparency in " +
+  "Coverage PUF</em>, plan year 2025. Public domain. " +
+  "Every number on this page is computed by SQL and the rules in " +
+  "<code>app/analysis.py</code>; no language model is involved anywhere in the " +
+  "pipeline.";
+
+const TILES = [
+  ["Insurers in the file", num(t.issuers), "with a computable denial rate"],
+  ["Large enough to analyse", num(t.analysed),
+   "at least " + num(DATA.thresholds.min_claims) + " claims"],
+  ["Flagged", num(t.findings), "in " + DATA.tier_order.filter(
+      (k) => DATA.findings.some((f) => f.concern === k)).length + " evidence tiers"],
+  ["No appeal outcomes filed", pct(t.no_appeal_share, 0),
+   num(t.no_appeal_data) + " insurers, unverifiable"],
+];
+const tiles = document.getElementById("tiles");
+for (const [label, value, sub] of TILES) {
+  const wrapEl = document.createElement("div");
+  wrapEl.className = "tile";
+  const dt = document.createElement("dt"); dt.textContent = label;
+  const dd = document.createElement("dd"); dd.textContent = value;
+  const sm = document.createElement("div"); sm.className = "sub"; sm.textContent = sub;
+  dd.appendChild(sm);
+  wrapEl.append(dt, dd);
+  tiles.appendChild(wrapEl);
+}
+
+/* ---------- findings -------------------------------------------------- */
+const present = DATA.tier_order.filter((k) => DATA.findings.some((f) => f.concern === k));
+document.getElementById("findings-title").textContent =
+  t.findings + " of " + num(t.analysed) + " insurers cleared the evidence bar.";
+document.getElementById("findings-lede").textContent =
+  "The interesting part is not that these insurers denied a lot of claims. It " +
+  "is that when their members pushed back, some of them reversed themselves " +
+  "more often than their peers did.";
+
+const box = document.getElementById("findings");
+for (const tier of present) {
+  const tone = DATA.tier_tone[tier];
+  const sec = document.createElement("div");
+  sec.className = "tier";
+
+  const head = document.createElement("div");
+  head.className = "tier-head";
+  const badge = document.createElement("span");
+  badge.className = "badge " + tone;
+  badge.setAttribute("aria-hidden", "true");
+  badge.textContent = tone === "critical" ? "!" : "▲";
+  const name = document.createElement("p");
+  name.className = "tier-name";
+  name.textContent = DATA.tier_label[tier];
+  head.append(badge, name);
+
+  const note = document.createElement("p");
+  note.className = "tier-note";
+  note.textContent = DATA.tier_note[tier];
+  sec.append(head, note);
+
+  for (const f of DATA.findings.filter((x) => x.concern === tier)) {
+    const card = document.createElement("article");
+    card.className = "card " + tone;
+
+    const h3 = document.createElement("h3"); h3.textContent = f.name;
+    const where = document.createElement("p");
+    where.className = "where";
+    where.textContent = f.state + " · " + f.market + " · compared with "
+      + f.peers + " peers";
+
+    const dl = document.createElement("dl");
+    const field = (label, value, qual) => {
+      // Each label/value pair is wrapped so the grid lays out whole fields.
+      // Putting dt and dd directly in the grid lets a pair split across rows.
+      const cell = document.createElement("div");
+      cell.className = "field";
+      const dt = document.createElement("dt"); dt.textContent = label;
+      const dd = document.createElement("dd"); dd.textContent = value;
+      if (qual) {
+        const s = document.createElement("div");
+        s.className = "qual"; s.textContent = qual;
+        dd.appendChild(s);
+      }
+      cell.append(dt, dd);
+      dl.append(cell);
+    };
+    field("Denial rate", pct(f.denial_rate),
+          f.times_median.toFixed(1) + "× the market median of "
+          + pct(f.market_median));
+    field("Claims denied", num(f.claims_denied),
+          "of " + num(f.claims_received) + " received");
+    field("Modified z-score", f.z.toFixed(2),
+          f.z > DATA.thresholds.outlier ? "past the extreme cut" : "elevated");
+    if (f.overturn_rate === null) {
+      field("Appeals", "Not reported", "no way to verify");
+    } else {
+      field("Appeals overturned", pct(f.overturn_rate, 0),
+            num(f.appeals) + " appeals · market median "
+            + pct(f.market_overturn_median, 0));
+    }
+
+    const verdict = document.createElement("p");
+    verdict.className = "verdict";
+    verdict.textContent = f.sigma === null
+      ? "No appeal outcomes were filed, so nothing corroborates or contradicts "
+        + "the denial rate."
+      : "The overturn rate sits " + f.sigma.toFixed(2) + " standard errors above "
+        + "the market median — past the "
+        + DATA.thresholds.significance_z + " needed to count as corroboration.";
+
+    card.append(h3, where, dl, verdict);
+    sec.appendChild(card);
+  }
+  box.appendChild(sec);
+}
+
+/* ---------- tooltip --------------------------------------------------- */
+const tip = document.getElementById("tip");
+function bindTip(node, html) {
+  const show = (e) => {
+    tip.innerHTML = html;
+    tip.style.opacity = "1";
+    const r = tip.getBoundingClientRect();
+    const x = Math.min(Math.max(8, e.clientX + 14), window.innerWidth - r.width - 8);
+    const y = Math.max(8, e.clientY - r.height - 12);
+    tip.style.left = x + "px";
+    tip.style.top = y + "px";
+  };
+  node.addEventListener("pointerenter", show);
+  node.addEventListener("pointermove", show);
+  node.addEventListener("pointerleave", () => { tip.style.opacity = "0"; });
+}
+
+/* ---------- label placement -------------------------------------------
+   Direct labels are how identity survives colourblindness and print, so they
+   cannot be allowed to land on top of each other. Each label is pushed up a
+   level until it clears every label already placed at that level, and anything
+   above the first level gets a leader line back to its mark. */
+const CHAR_W = 6.1;   // mean advance of the 11px label face
+const LEVEL_H = 14;
+
+function placeLabels(items) {
+  const placed = [];
+  for (const it of [...items].sort((a, b) => a.x - b.x)) {
+    it.w = it.text.length * CHAR_W;
+    it.level = 0;
+    while (placed.some((p) => p.level === it.level
+           && Math.abs(p.x - it.x) < (p.w + it.w) / 2 + 10)) it.level++;
+    placed.push(it);
+  }
+  return placed;
+}
+
+function drawLabel(svg, it, anchorY) {
+  const ly = anchorY - 11 - it.level * LEVEL_H;
+  if (it.level > 0) {
+    svg.appendChild(el("line", {
+      x1: it.x, x2: it.x, y1: anchorY - 8, y2: ly + 3,
+      stroke: "var(--axis)", "stroke-width": 1,
+    }));
+  }
+  svg.appendChild(el("text", {
+    x: it.x, y: ly, "text-anchor": "middle",
+    class: "pt-label" + (it.dim ? " dim" : ""),
+  }, it.text));
+}
+
+function shortName(name, max) {
+  const s = name.replace(/,? (Inc|Insurance Company|Company|Co)\.?$/i, "")
+    .replace(/^Blue Cross and Blue Shield of /i, "BCBS ")
+    .replace(/^AmeriHealth Caritas /i, "AmeriHealth ")
+    .replace(/^UnitedHealthcare of /i, "UnitedHealthcare ");
+  return s.length > max ? s.slice(0, max - 1) + "…" : s;
+}
+
+/* ---------- chart 1: denial-rate spread by market --------------------- */
+function drawSpread() {
+  const host = document.getElementById("spread");
+  const markets = DATA.markets;
+  const W = 760, L = 20, R = 20;
+  const ROW = 104, TOP = 14;
+  const H = TOP + markets.length * ROW + 34;
+
+  const max = Math.max(...markets.flatMap((m) => m.points.map((p) => p.denial_rate)));
+  const hi = Math.ceil(max * 10) / 10;
+  const x = (v) => L + (v / hi) * (W - L - R);
+
+  const svg = el("svg", {
+    viewBox: `0 0 ${W} ${H}`, role: "img",
+    "aria-label": "Denial rates of every analysed insurer, split by market.",
+  });
+
+  for (let g = 0; g <= hi * 10; g++) {
+    const v = g / 10;
+    svg.appendChild(el("line", {
+      x1: x(v), x2: x(v), y1: TOP + 10, y2: TOP + markets.length * ROW - 6,
+      stroke: "var(--grid)", "stroke-width": 1,
+    }));
+    svg.appendChild(el("text", {
+      x: x(v), y: TOP + markets.length * ROW + 12,
+      "text-anchor": "middle", class: "tick",
+    }, Math.round(v * 100) + "%"));
+  }
+  svg.appendChild(el("text", {
+    x: (L + W - R) / 2, y: TOP + markets.length * ROW + 30,
+    "text-anchor": "middle", class: "axis-title",
+  }, "Share of in-network claims denied"));
+
+  markets.forEach((m, i) => {
+    const base = TOP + i * ROW + 72;
+
+    svg.appendChild(el("text", { x: L, y: base - 56, class: "row-label" }, m.name));
+    svg.appendChild(el("text", { x: L, y: base - 41, class: "row-sub" },
+      m.issuers + " insurers · median " + pct(m.median_denial_rate)
+      + (m.analysed ? "" : " · too few peers to analyse")));
+
+    // Median marker: a tall tick, so "the middle of this market" is visible.
+    svg.appendChild(el("line", {
+      x1: x(m.median_denial_rate), x2: x(m.median_denial_rate),
+      y1: base - 11, y2: base + 11,
+      stroke: "var(--axis)", "stroke-width": 2, "stroke-linecap": "round",
+    }));
+
+    const flagged = [];
+    for (const p of m.points) {
+      const jitter = ((Math.abs(hash(p.name + p.state)) % 100) / 100 - 0.5) * 15;
+      if (p.concern) { flagged.push({ p, jitter }); continue; }
+      const dot = el("circle", {
+        cx: x(p.denial_rate), cy: base + jitter, r: 3.2,
+        fill: "var(--dot)", "fill-opacity": 0.85,
+      });
+      bindTip(dot, `<b>${esc(p.name)}</b><br>${p.state} · <span class="n">`
+        + `${pct(p.denial_rate)}</span> denied`);
+      svg.appendChild(dot);
+    }
+
+    // Flagged marks last so they sit above the crowd, each with a surface ring
+    // and a direct label - hue never carries the meaning on its own.
+    const labels = [];
+    for (const { p, jitter } of flagged) {
+      const crit = p.concern === "denials_overturned_on_appeal";
+      const cx = x(p.denial_rate), cy = base + jitter;
+      const mark = crit
+        ? el("circle", { cx, cy, r: 5.5, fill: "var(--critical)" })
+        : el("path", {
+            d: `M ${cx} ${cy - 6} L ${cx + 5.6} ${cy + 4} L ${cx - 5.6} ${cy + 4} Z`,
+            fill: "var(--warning)",
+          });
+      mark.setAttribute("stroke", "var(--surface)");
+      mark.setAttribute("stroke-width", "2");
+      bindTip(mark, `<b>${esc(p.name)}</b><br>${p.state} · <span class="n">`
+        + `${pct(p.denial_rate)}</span> denied · z <span class="n">${p.z}</span>`
+        + `<br>${esc(DATA.tier_label[p.concern])}`);
+      svg.appendChild(mark);
+      labels.push({ x: cx, text: shortName(p.name, 24), dim: !crit });
+    }
+    for (const it of placeLabels(labels)) drawLabel(svg, it, base - 6);
+  });
+
+  host.appendChild(svg);
+  document.getElementById("spread-cap").textContent =
+    "Each dot is one insurer. The vertical tick is that market’s median. "
+    + "A dental insurer denying 32% of claims is exactly average; a medical one "
+    + "denying 32% is nearly twice its market’s median.";
+}
+
+/* ---------- chart 2: funnel plot -------------------------------------- */
+function drawFunnel() {
+  const m = DATA.markets.find((x) => x.name === DATA.funnel_market);
+  const host = document.getElementById("funnel");
+  const pts = m.points.filter((p) => p.overturn_rate !== null && p.appeals > 0);
+  const base = m.median_overturn_rate;
+  const Z = DATA.thresholds.significance_z;
+
+  const W = 760, L = 54, R = 22, T = 26, B = 46;
+  const H = 340;
+  // Pad the observed range rather than rounding out to whole decades - the
+  // largest filer here is nowhere near the next power of ten, and rounding
+  // would spend a third of the chart on empty space.
+  const lo = Math.max(1, Math.min(...pts.map((p) => p.appeals))) / 1.5;
+  const hi = Math.max(...pts.map((p) => p.appeals)) * 1.5;
+  const x = (n) => L + (Math.log10(n) - Math.log10(lo))
+    / (Math.log10(hi) - Math.log10(lo)) * (W - L - R);
+  const yMax = Math.min(1, Math.max(...pts.map((p) => p.overturn_rate)) + 0.08);
+  const y = (v) => T + (1 - v / yMax) * (H - T - B);
+
+  const svg = el("svg", {
+    viewBox: `0 0 ${W} ${H}`, role: "img",
+    "aria-label": "Overturn rate against number of appeals filed, with the "
+      + "significance boundary.",
+  });
+
+  for (let g = 0; g <= Math.round(yMax * 10); g += 2) {
+    const v = g / 10;
+    if (v > yMax) break;
+    svg.appendChild(el("line", {
+      x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "var(--grid)", "stroke-width": 1,
+    }));
+    svg.appendChild(el("text", {
+      x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "tick",
+    }, Math.round(v * 100) + "%"));
+  }
+
+  for (let p = Math.ceil(Math.log10(lo)); p <= Math.log10(hi); p++) {
+    const n = Math.pow(10, p);
+    svg.appendChild(el("line", {
+      x1: x(n), x2: x(n), y1: T, y2: H - B,
+      stroke: "var(--grid)", "stroke-width": 1,
+    }));
+    svg.appendChild(el("text", {
+      x: x(n), y: H - B + 18, "text-anchor": "middle", class: "tick",
+    }, num(n)));
+  }
+  svg.appendChild(el("text", {
+    x: (L + W - R) / 2, y: H - B + 36, "text-anchor": "middle", class: "axis-title",
+  }, "Appeals filed (log scale)"));
+  svg.appendChild(el("text", {
+    x: L - 34, y: (T + H - B) / 2, class: "axis-title",
+    transform: `rotate(-90 ${L - 34} ${(T + H - B) / 2})`, "text-anchor": "middle",
+  }, "Appeals overturned"));
+
+  // The market median, and the boundary a rate must clear above it.
+  svg.appendChild(el("line", {
+    x1: L, x2: W - R, y1: y(base), y2: y(base),
+    stroke: "var(--axis)", "stroke-width": 2, "stroke-dasharray": "2 4",
+  }));
+
+  let d = "";
+  for (let i = 0; i <= 120; i++) {
+    const n = Math.pow(10, Math.log10(lo) + (i / 120) * (Math.log10(hi) - Math.log10(lo)));
+    const se = Math.sqrt(base * (1 - base) / n);
+    const v = Math.min(yMax, base + Z * se);
+    d += (i ? " L " : "M ") + x(n).toFixed(1) + " " + y(v).toFixed(1);
+  }
+  svg.appendChild(el("path", {
+    d, fill: "none", stroke: "var(--critical)", "stroke-width": 2,
+    "stroke-linecap": "round", "stroke-opacity": 0.55,
+  }));
+  // The curve and the median line are named in the legend rather than
+  // annotated in place - both converge on the right, where every in-chart
+  // label would have to fight the other for the same few pixels.
+  const labels = [];
+  for (const p of pts) {
+    const crit = p.concern === "denials_overturned_on_appeal";
+    const cx = x(p.appeals), cy = y(Math.min(p.overturn_rate, yMax));
+    const mark = crit
+      ? el("circle", { cx, cy, r: 5.5, fill: "var(--critical)" })
+      : el("circle", { cx, cy, r: 3.2, fill: "var(--dot)", "fill-opacity": 0.85 });
+    if (crit) {
+      mark.setAttribute("stroke", "var(--surface)");
+      mark.setAttribute("stroke-width", "2");
+    }
+    const se = Math.sqrt(base * (1 - base) / p.appeals);
+    const sig = ((p.overturn_rate - base) / se).toFixed(2);
+    bindTip(mark, `<b>${esc(p.name)}</b><br>${p.state}<br>`
+      + `<span class="n">${pct(p.overturn_rate, 0)}</span> of `
+      + `<span class="n">${num(p.appeals)}</span> appeals overturned<br>`
+      + `<span class="n">${sig}</span> standard errors above the median`);
+    svg.appendChild(mark);
+
+    if (crit) labels.push({ x: cx, y: cy, text: shortName(p.name, 24) });
+  }
+  for (const it of placeLabels(labels)) drawLabel(svg, it, it.y);
+
+  host.appendChild(svg);
+  document.getElementById("funnel-cap").textContent =
+    "Every insurer in " + m.name + " that reported appeal outcomes ("
+    + pts.length + " of " + m.issuers + "). Points above the curve are far "
+    + "enough above the median that sampling noise does not explain it. The "
+    + "curve is high on the left because a handful of appeals proves very little.";
+
+  buildFunnelTable(pts, base, Z);
+}
+
+function buildFunnelTable(pts, base, Z) {
+  const rows = [...pts].sort((a, b) => {
+    const sa = (a.overturn_rate - base) / Math.sqrt(base * (1 - base) / a.appeals);
+    const sb = (b.overturn_rate - base) / Math.sqrt(base * (1 - base) / b.appeals);
+    return sb - sa;
+  }).slice(0, 12);
+
+  const table = document.createElement("table");
+  const cap = document.createElement("caption");
+  cap.textContent = "The twelve insurers furthest above the market overturn "
+    + "median, by standard errors. Only those past " + Z + " corroborate.";
+  table.appendChild(cap);
+
+  const head = document.createElement("tr");
+  for (const h of ["Insurer", "State", "Overturned", "Appeals", "Std. errors"]) {
+    const th = document.createElement("th");
+    th.textContent = h;
+    if (h !== "Insurer" && h !== "State") th.style.textAlign = "right";
+    head.appendChild(th);
+  }
+  table.appendChild(head);
+
+  for (const p of rows) {
+    const se = Math.sqrt(base * (1 - base) / p.appeals);
+    const sig = (p.overturn_rate - base) / se;
+    const tr = document.createElement("tr");
+    const cells = [
+      [p.name, false], [p.state, false], [pct(p.overturn_rate, 0), true],
+      [num(p.appeals), true], [sig.toFixed(2), true],
+    ];
+    for (const [text, isNum] of cells) {
+      const td = document.createElement("td");
+      td.textContent = text;
+      if (isNum) td.className = "num";
+      tr.appendChild(td);
+    }
+    if (sig > Z) tr.style.fontWeight = "600";
+    table.appendChild(tr);
+  }
+  document.getElementById("funnel-table").appendChild(table);
+}
+
+/* ---------- method numbers -------------------------------------------- */
+document.getElementById("m-peers").textContent = DATA.thresholds.min_peers;
+document.getElementById("m-outlier").textContent = DATA.thresholds.outlier;
+document.getElementById("m-watch").textContent = DATA.thresholds.watch;
+const sigmas = DATA.findings.map((f) => f.sigma).filter((s) => s !== null);
+document.getElementById("m-narrow").textContent =
+  sigmas.length ? Math.min(...sigmas).toFixed(2) : "—";
+
+/* ---------- helpers ---------------------------------------------------- */
+function hash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return h;
+}
+function esc(s) {
+  return s.replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+drawSpread();
+drawFunnel();
+</script>
+</body>
+</html>

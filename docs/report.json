@@ -1,0 +1,3046 @@
+{
+  "generated": "2026-09-27",
+  "source": "CMS Transparency in Coverage PUF, plan year 2025",
+  "totals": {
+    "issuers": 326,
+    "analysed": 289,
+    "findings": 5,
+    "no_appeal_data": 166,
+    "no_appeal_share": 0.50920245398773
+  },
+  "thresholds": {
+    "outlier": 3.5,
+    "watch": 2.0,
+    "min_claims": 1000,
+    "min_peers": 20,
+    "significance_z": 1.645,
+    "min_expected": 5
+  },
+  "markets": [
+    {
+      "name": "Individual QHP",
+      "issuers": 170,
+      "analysed": true,
+      "median_denial_rate": 0.18317159880533737,
+      "median_overturn_rate": 0.42506592594144643,
+      "points": [
+        {
+          "name": "PacificSource Health Plans",
+          "state": "OR",
+          "denial_rate": 0.021547839915186853,
+          "overturn_rate": 0.23329223181257708,
+          "appeals": 4055,
+          "claims_denied": 9756,
+          "z": -2.17,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of Wyoming",
+          "state": "WY",
+          "denial_rate": 0.19165221808365193,
+          "overturn_rate": 0.5727611940298507,
+          "appeals": 536,
+          "claims_denied": 187139,
+          "z": 0.1,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of NC",
+          "state": "NC",
+          "denial_rate": 0.18903059515664825,
+          "overturn_rate": 0.3573347662547018,
+          "appeals": 1861,
+          "claims_denied": 3451238,
+          "z": 0.07,
+          "concern": null
+        },
+        {
+          "name": "Oscar Health Plan, Inc.",
+          "state": "IL",
+          "denial_rate": 0.20833248321873787,
+          "overturn_rate": 0.3296398891966759,
+          "appeals": 722,
+          "claims_denied": 10211,
+          "z": 0.33,
+          "concern": null
+        },
+        {
+          "name": "HMO Partners, Inc.",
+          "state": "AR",
+          "denial_rate": 0.1757505685401418,
+          "overturn_rate": 0.34192439862542956,
+          "appeals": 1164,
+          "claims_denied": 239109,
+          "z": -0.11,
+          "concern": null
+        },
+        {
+          "name": "CareSource North Carolina Co.",
+          "state": "NC",
+          "denial_rate": 0.3383866481223922,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2433,
+          "z": 2.07,
+          "concern": null
+        },
+        {
+          "name": "Oscar Health Plan, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.1742758070249569,
+          "overturn_rate": 0.5103225806451613,
+          "appeals": 3100,
+          "claims_denied": 25984,
+          "z": -0.13,
+          "concern": null
+        },
+        {
+          "name": "BlueCross BlueShield of Tennessee",
+          "state": "TN",
+          "denial_rate": 0.20913060187149812,
+          "overturn_rate": 0.3326133909287257,
+          "appeals": 463,
+          "claims_denied": 939798,
+          "z": 0.34,
+          "concern": null
+        },
+        {
+          "name": "Primewell Health Services of Mississippi, Inc.",
+          "state": "MS",
+          "denial_rate": 0.16299836259091427,
+          "overturn_rate": 0.6885245901639344,
+          "appeals": 61,
+          "claims_denied": 17122,
+          "z": -0.28,
+          "concern": null
+        },
+        {
+          "name": "Chorus Community Health Plans",
+          "state": "WI",
+          "denial_rate": 0.08737432411112546,
+          "overturn_rate": 0.48125,
+          "appeals": 320,
+          "claims_denied": 18276,
+          "z": -1.29,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of Michigan Mutual Insurance Company",
+          "state": "MI",
+          "denial_rate": 0.1454408011257576,
+          "overturn_rate": 0.3942857142857143,
+          "appeals": 175,
+          "claims_denied": 207020,
+          "z": -0.52,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Florida",
+          "state": "FL",
+          "denial_rate": 0.18461735862010945,
+          "overturn_rate": 0.44191258871871497,
+          "appeals": 2677,
+          "claims_denied": 3923703,
+          "z": 0.01,
+          "concern": null
+        },
+        {
+          "name": "AmeriHealth Caritas North Carolina, Inc.",
+          "state": "NC",
+          "denial_rate": 0.391382717239385,
+          "overturn_rate": 0.7083333333333334,
+          "appeals": 48,
+          "claims_denied": 81208,
+          "z": 2.78,
+          "concern": "denials_overturned_on_appeal"
+        },
+        {
+          "name": "Anthem Ins Companies Inc(Anthem BCBS)",
+          "state": "IN",
+          "denial_rate": 0.10145461770534318,
+          "overturn_rate": 0.42581423401688784,
+          "appeals": 829,
+          "claims_denied": 77614,
+          "z": -1.1,
+          "concern": null
+        },
+        {
+          "name": "Moda Health Plan, Inc.",
+          "state": "TX",
+          "denial_rate": 0.2552002483700714,
+          "overturn_rate": 0.7692307692307693,
+          "appeals": 26,
+          "claims_denied": 23838,
+          "z": 0.95,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Utah",
+          "state": "UT",
+          "denial_rate": 0.2821826079087865,
+          "overturn_rate": 0.7297297297297297,
+          "appeals": 37,
+          "claims_denied": 15592,
+          "z": 1.31,
+          "concern": null
+        },
+        {
+          "name": "Hawaii Medical Service Association",
+          "state": "HI",
+          "denial_rate": 0.24185523182975996,
+          "overturn_rate": 0.4634146341463415,
+          "appeals": 82,
+          "claims_denied": 162934,
+          "z": 0.77,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Kansas, Inc.",
+          "state": "KS",
+          "denial_rate": 0.11753841339433987,
+          "overturn_rate": 0.46859903381642515,
+          "appeals": 207,
+          "claims_denied": 145732,
+          "z": -0.89,
+          "concern": null
+        },
+        {
+          "name": "Aetna Health Inc. (a FL corp.)",
+          "state": "FL",
+          "denial_rate": 0.22267199855042555,
+          "overturn_rate": 0.3856275303643725,
+          "appeals": 988,
+          "claims_denied": 2654415,
+          "z": 0.52,
+          "concern": null
+        },
+        {
+          "name": "HMO Louisiana, Inc.",
+          "state": "LA",
+          "denial_rate": 0.16644781052051777,
+          "overturn_rate": 0.3455188679245283,
+          "appeals": 1696,
+          "claims_denied": 755465,
+          "z": -0.23,
+          "concern": null
+        },
+        {
+          "name": "AvMed, Inc.",
+          "state": "FL",
+          "denial_rate": 0.31104897761083794,
+          "overturn_rate": 0.7037037037037037,
+          "appeals": 27,
+          "claims_denied": 147403,
+          "z": 1.7,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "TX",
+          "denial_rate": 0.1830327542047853,
+          "overturn_rate": 0.5228409187219256,
+          "appeals": 23598,
+          "claims_denied": 337877,
+          "z": -0.01,
+          "concern": null
+        },
+        {
+          "name": "Health Alliance Medical Plans, Inc.",
+          "state": "IL",
+          "denial_rate": 0.12458476938411576,
+          "overturn_rate": 0.39819004524886875,
+          "appeals": 221,
+          "claims_denied": 187861,
+          "z": -0.79,
+          "concern": null
+        },
+        {
+          "name": "HealthPartners Insurance Company",
+          "state": "WI",
+          "denial_rate": 0.06634366054659895,
+          "overturn_rate": null,
+          "appeals": 13,
+          "claims_denied": 24127,
+          "z": -1.57,
+          "concern": null
+        },
+        {
+          "name": "Medica Insurance Company",
+          "state": "NE",
+          "denial_rate": 0.17646652826315437,
+          "overturn_rate": 0.4496124031007752,
+          "appeals": 903,
+          "claims_denied": 258233,
+          "z": -0.1,
+          "concern": null
+        },
+        {
+          "name": "Medica Insurance Company",
+          "state": "OK",
+          "denial_rate": 0.23937900306321358,
+          "overturn_rate": 0.5076923076923077,
+          "appeals": 130,
+          "claims_denied": 85961,
+          "z": 0.74,
+          "concern": null
+        },
+        {
+          "name": "Regence BlueCross BlueShield of Utah",
+          "state": "UT",
+          "denial_rate": 0.13718572156035433,
+          "overturn_rate": 0.12320328542094455,
+          "appeals": 487,
+          "claims_denied": 49031,
+          "z": -0.63,
+          "concern": null
+        },
+        {
+          "name": "Banner Health and Aetna Health Plan Inc.",
+          "state": "AZ",
+          "denial_rate": 0.22072950206473205,
+          "overturn_rate": 0.460431654676259,
+          "appeals": 278,
+          "claims_denied": 422220,
+          "z": 0.49,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "TN",
+          "denial_rate": 0.21570392087732645,
+          "overturn_rate": 0.5129504504504504,
+          "appeals": 1776,
+          "claims_denied": 23249,
+          "z": 0.42,
+          "concern": null
+        },
+        {
+          "name": "PacificSource Health Plans",
+          "state": "MT",
+          "denial_rate": 0.029452827312909616,
+          "overturn_rate": 0.23132036847492324,
+          "appeals": 977,
+          "claims_denied": 4831,
+          "z": -2.07,
+          "concern": null
+        },
+        {
+          "name": "Wellmark Health Plan of Iowa, Inc.",
+          "state": "IA",
+          "denial_rate": 0.17259988035702345,
+          "overturn_rate": 0.4155844155844156,
+          "appeals": 308,
+          "claims_denied": 753627,
+          "z": -0.15,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of South Carolina",
+          "state": "SC",
+          "denial_rate": 0.19049572039787338,
+          "overturn_rate": 0.4073461283917935,
+          "appeals": 3022,
+          "claims_denied": 2183048,
+          "z": 0.09,
+          "concern": null
+        },
+        {
+          "name": "Nebraska Total Care, Inc.",
+          "state": "NE",
+          "denial_rate": 0.12251213633431782,
+          "overturn_rate": 0.483695652173913,
+          "appeals": 552,
+          "claims_denied": 180442,
+          "z": -0.82,
+          "concern": null
+        },
+        {
+          "name": "Community Health Choice, Inc.",
+          "state": "TX",
+          "denial_rate": 0.17903060564191883,
+          "overturn_rate": 0.23793949304987735,
+          "appeals": 1223,
+          "claims_denied": 1238096,
+          "z": -0.07,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "IL",
+          "denial_rate": 0.13719754546367988,
+          "overturn_rate": 0.445859872611465,
+          "appeals": 314,
+          "claims_denied": 230759,
+          "z": -0.63,
+          "concern": null
+        },
+        {
+          "name": "Community Insurance Company(Anthem BCBS)",
+          "state": "OH",
+          "denial_rate": 0.22112998577349519,
+          "overturn_rate": 0.3266078184110971,
+          "appeals": 793,
+          "claims_denied": 731789,
+          "z": 0.5,
+          "concern": null
+        },
+        {
+          "name": "Oscar Buckeye State Insurance Corp.",
+          "state": "OH",
+          "denial_rate": 0.18904819988799645,
+          "overturn_rate": 0.44527220630372494,
+          "appeals": 1745,
+          "claims_denied": 24643,
+          "z": 0.07,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "TX",
+          "denial_rate": 0.11731470742269154,
+          "overturn_rate": 0.5846685516808042,
+          "appeals": 3183,
+          "claims_denied": 2094669,
+          "z": -0.89,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Nebraska",
+          "state": "NE",
+          "denial_rate": 0.1678390105020733,
+          "overturn_rate": 0.24064837905236908,
+          "appeals": 802,
+          "claims_denied": 87307,
+          "z": -0.22,
+          "concern": null
+        },
+        {
+          "name": "Priority Health",
+          "state": "MI",
+          "denial_rate": 0.06733779213571228,
+          "overturn_rate": 0.24,
+          "appeals": 125,
+          "claims_denied": 225909,
+          "z": -1.56,
+          "concern": null
+        },
+        {
+          "name": "Health Options, Inc.",
+          "state": "FL",
+          "denial_rate": 0.25313439245622976,
+          "overturn_rate": 0.3847463398025196,
+          "appeals": 2937,
+          "claims_denied": 9940136,
+          "z": 0.93,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Montana",
+          "state": "MT",
+          "denial_rate": 0.39446339101511513,
+          "overturn_rate": 0.2629310344827586,
+          "appeals": 232,
+          "claims_denied": 93689,
+          "z": 2.82,
+          "concern": null
+        },
+        {
+          "name": "Sanford Health Plan",
+          "state": "SD",
+          "denial_rate": 0.05039406538494931,
+          "overturn_rate": 0.6550387596899225,
+          "appeals": 258,
+          "claims_denied": 31344,
+          "z": -1.79,
+          "concern": null
+        },
+        {
+          "name": "Highmark Blue Cross Blue Shield West Virginia",
+          "state": "WV",
+          "denial_rate": 0.10701303307030766,
+          "overturn_rate": 0.24675324675324675,
+          "appeals": 77,
+          "claims_denied": 83283,
+          "z": -1.03,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Illinois, Inc.",
+          "state": "IL",
+          "denial_rate": 0.3492113806031326,
+          "overturn_rate": 0.38235294117647056,
+          "appeals": 34,
+          "claims_denied": 31949,
+          "z": 2.21,
+          "concern": null
+        },
+        {
+          "name": "Healthy Alliance Life Co(Anthem BCBS)",
+          "state": "MO",
+          "denial_rate": 0.07137925911347538,
+          "overturn_rate": 0.4,
+          "appeals": 185,
+          "claims_denied": 184969,
+          "z": -1.51,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of Texas",
+          "state": "TX",
+          "denial_rate": 0.2402058916513814,
+          "overturn_rate": 0.5660102115244348,
+          "appeals": 10968,
+          "claims_denied": 9593132,
+          "z": 0.75,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Ohio, Inc.",
+          "state": "OH",
+          "denial_rate": 0.3643157348966948,
+          "overturn_rate": 0.47076023391812866,
+          "appeals": 342,
+          "claims_denied": 125776,
+          "z": 2.41,
+          "concern": "denials_overturned_on_appeal"
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "KS",
+          "denial_rate": 0.1347675344983935,
+          "overturn_rate": 0.4758004467609829,
+          "appeals": 1343,
+          "claims_denied": 487012,
+          "z": -0.66,
+          "concern": null
+        },
+        {
+          "name": "BridgeSpan Health Company",
+          "state": "UT",
+          "denial_rate": 0.27626285203397405,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 618,
+          "z": 1.24,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Kansas City",
+          "state": "MO",
+          "denial_rate": 0.20635249018832336,
+          "overturn_rate": null,
+          "appeals": 38,
+          "claims_denied": 33913,
+          "z": 0.3,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of Illinois",
+          "state": "IL",
+          "denial_rate": 0.20548613371457455,
+          "overturn_rate": 0.3109318996415771,
+          "appeals": 2232,
+          "claims_denied": 2169193,
+          "z": 0.29,
+          "concern": null
+        },
+        {
+          "name": "Health First Commercial Plans, Inc.",
+          "state": "FL",
+          "denial_rate": 0.19327164211794337,
+          "overturn_rate": 0.4320388349514563,
+          "appeals": 412,
+          "claims_denied": 352972,
+          "z": 0.12,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of North Dakota",
+          "state": "ND",
+          "denial_rate": 0.14715270526404348,
+          "overturn_rate": 0.3404255319148936,
+          "appeals": 141,
+          "claims_denied": 89205,
+          "z": -0.49,
+          "concern": null
+        },
+        {
+          "name": "Quartz Health Benefit Plans Corporation",
+          "state": "WI",
+          "denial_rate": 0.08050294466416254,
+          "overturn_rate": 0.15625,
+          "appeals": 160,
+          "claims_denied": 48608,
+          "z": -1.38,
+          "concern": null
+        },
+        {
+          "name": "QualChoice Life & Health Insurance Company, Inc.",
+          "state": "AR",
+          "denial_rate": 0.12364049487254243,
+          "overturn_rate": 0.26785714285714285,
+          "appeals": 392,
+          "claims_denied": 234093,
+          "z": -0.81,
+          "concern": null
+        },
+        {
+          "name": "Premera Blue Cross Blue Shield of Alaska",
+          "state": "AK",
+          "denial_rate": 0.25426053771630264,
+          "overturn_rate": 0.49603174603174605,
+          "appeals": 252,
+          "claims_denied": 186285,
+          "z": 0.94,
+          "concern": null
+        },
+        {
+          "name": "Dean Health Plan",
+          "state": "WI",
+          "denial_rate": 0.1030638003153108,
+          "overturn_rate": 0.5069444444444444,
+          "appeals": 144,
+          "claims_denied": 113095,
+          "z": -1.08,
+          "concern": null
+        },
+        {
+          "name": "Montana Health Cooperative",
+          "state": "WY",
+          "denial_rate": 0.08328945579729152,
+          "overturn_rate": 0.2365296803652968,
+          "appeals": 1095,
+          "claims_denied": 43501,
+          "z": -1.35,
+          "concern": null
+        },
+        {
+          "name": "Moda Health Plan, Inc.",
+          "state": "OR",
+          "denial_rate": 0.15033221459983884,
+          "overturn_rate": 0.3221476510067114,
+          "appeals": 149,
+          "claims_denied": 143470,
+          "z": -0.45,
+          "concern": null
+        },
+        {
+          "name": "Medica Insurance Company",
+          "state": "KS",
+          "denial_rate": 0.2144519482002884,
+          "overturn_rate": 0.37735849056603776,
+          "appeals": 53,
+          "claims_denied": 15020,
+          "z": 0.41,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Michigan, Inc.",
+          "state": "MI",
+          "denial_rate": 0.24720353181067203,
+          "overturn_rate": 0.4482758620689655,
+          "appeals": 116,
+          "claims_denied": 127780,
+          "z": 0.85,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Texas, Inc.",
+          "state": "TX",
+          "denial_rate": 0.31095611450865235,
+          "overturn_rate": 0.3464847848898216,
+          "appeals": 4765,
+          "claims_denied": 1371536,
+          "z": 1.7,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company of Florida",
+          "state": "FL",
+          "denial_rate": 0.16877454471578257,
+          "overturn_rate": 0.4499396045113394,
+          "appeals": 221043,
+          "claims_denied": 2806266,
+          "z": -0.2,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Arizona, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.39621185163630923,
+          "overturn_rate": 0.4153153153153153,
+          "appeals": 2220,
+          "claims_denied": 678094,
+          "z": 2.84,
+          "concern": null
+        },
+        {
+          "name": "Scott and White Health Plan",
+          "state": "TX",
+          "denial_rate": 0.19062220256387868,
+          "overturn_rate": 0.6484018264840182,
+          "appeals": 1095,
+          "claims_denied": 993379,
+          "z": 0.09,
+          "concern": null
+        },
+        {
+          "name": "Buckeye Community Health Plan",
+          "state": "OH",
+          "denial_rate": 0.14429200454587315,
+          "overturn_rate": 0.6473509933774835,
+          "appeals": 604,
+          "claims_denied": 427746,
+          "z": -0.53,
+          "concern": null
+        },
+        {
+          "name": "University of Utah Health Insurance Plans",
+          "state": "UT",
+          "denial_rate": 0.18952199846536627,
+          "overturn_rate": 0.40848214285714285,
+          "appeals": 448,
+          "claims_denied": 107936,
+          "z": 0.07,
+          "concern": null
+        },
+        {
+          "name": "MOLINA HEALTHCARE OF SOUTH CAROLINA, INC",
+          "state": "SC",
+          "denial_rate": 0.2505501407417036,
+          "overturn_rate": 0.4561933534743202,
+          "appeals": 331,
+          "claims_denied": 217809,
+          "z": 0.89,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Illinois, Inc.",
+          "state": "IL",
+          "denial_rate": 0.373251011896201,
+          "overturn_rate": 0.3921852387843705,
+          "appeals": 691,
+          "claims_denied": 181665,
+          "z": 2.53,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "KS",
+          "denial_rate": 0.19656428119062697,
+          "overturn_rate": 0.5459057071960298,
+          "appeals": 403,
+          "claims_denied": 7449,
+          "z": 0.17,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "NC",
+          "denial_rate": 0.3624801271860095,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1140,
+          "z": 2.39,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Oklahoma, Inc.",
+          "state": "OK",
+          "denial_rate": 0.32811998013960686,
+          "overturn_rate": 0.28313253012048195,
+          "appeals": 166,
+          "claims_denied": 44938,
+          "z": 1.93,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Texas, Inc.",
+          "state": "TX",
+          "denial_rate": 0.27131763523362185,
+          "overturn_rate": 0.36429165511505407,
+          "appeals": 3607,
+          "claims_denied": 368184,
+          "z": 1.17,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "IA",
+          "denial_rate": 0.178078635424607,
+          "overturn_rate": 0.4357754519505233,
+          "appeals": 2102,
+          "claims_denied": 32239,
+          "z": -0.08,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Corporation of Ohio",
+          "state": "OH",
+          "denial_rate": 0.09529289528368888,
+          "overturn_rate": 0.4482366325369738,
+          "appeals": 1758,
+          "claims_denied": 14491,
+          "z": -1.19,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Alabama",
+          "state": "AL",
+          "denial_rate": 0.34779067054449636,
+          "overturn_rate": 0.4658959537572254,
+          "appeals": 1730,
+          "claims_denied": 4533017,
+          "z": 2.19,
+          "concern": "denials_overturned_on_appeal"
+        },
+        {
+          "name": "Medica Central Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.15856364981384688,
+          "overturn_rate": 0.38461538461538464,
+          "appeals": 39,
+          "claims_denied": 26150,
+          "z": -0.34,
+          "concern": null
+        },
+        {
+          "name": "Cigna Health and Life Insurance Company",
+          "state": "FL",
+          "denial_rate": 0.20361777331992542,
+          "overturn_rate": 0.2701048951048951,
+          "appeals": 1144,
+          "claims_denied": 948441,
+          "z": 0.26,
+          "concern": null
+        },
+        {
+          "name": "Aetna Life Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.19073503175725393,
+          "overturn_rate": 0.43661971830985913,
+          "appeals": 71,
+          "claims_denied": 132463,
+          "z": 0.09,
+          "concern": null
+        },
+        {
+          "name": "Wellmark of South Dakota",
+          "state": "SD",
+          "denial_rate": 0.15466548813243436,
+          "overturn_rate": 0.47619047619047616,
+          "appeals": 42,
+          "claims_denied": 45145,
+          "z": -0.39,
+          "concern": null
+        },
+        {
+          "name": "CareSource West Virginia Co.",
+          "state": "WV",
+          "denial_rate": 0.24052100381887617,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 105810,
+          "z": 0.76,
+          "concern": null
+        },
+        {
+          "name": "Summa Insurance Company, Inc.",
+          "state": "OH",
+          "denial_rate": 0.2476588369205298,
+          "overturn_rate": 0.6885245901639344,
+          "appeals": 244,
+          "claims_denied": 57441,
+          "z": 0.85,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Wisconsin, Inc.",
+          "state": "WI",
+          "denial_rate": 0.22910166103024981,
+          "overturn_rate": 0.5669291338582677,
+          "appeals": 127,
+          "claims_denied": 49047,
+          "z": 0.6,
+          "concern": null
+        },
+        {
+          "name": "Medica Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.20777681779338933,
+          "overturn_rate": 0.4409090909090909,
+          "appeals": 220,
+          "claims_denied": 88018,
+          "z": 0.32,
+          "concern": null
+        },
+        {
+          "name": "Cigna HealthCare of Illinois, Inc.",
+          "state": "IL",
+          "denial_rate": 0.26035882962792306,
+          "overturn_rate": 0.4528301886792453,
+          "appeals": 53,
+          "claims_denied": 90407,
+          "z": 1.02,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Arizona, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.16263412811798167,
+          "overturn_rate": 0.469895880488909,
+          "appeals": 2209,
+          "claims_denied": 222893,
+          "z": -0.29,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "AL",
+          "denial_rate": 0.16957445348591338,
+          "overturn_rate": 0.3348623853211009,
+          "appeals": 218,
+          "claims_denied": 121096,
+          "z": -0.19,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Florida, Inc",
+          "state": "FL",
+          "denial_rate": 0.3212897339522752,
+          "overturn_rate": 0.2896174863387978,
+          "appeals": 732,
+          "claims_denied": 244390,
+          "z": 1.84,
+          "concern": null
+        },
+        {
+          "name": "CareSource Indiana, Inc.",
+          "state": "IN",
+          "denial_rate": 0.19428491654586158,
+          "overturn_rate": 0.3,
+          "appeals": 100,
+          "claims_denied": 576156,
+          "z": 0.14,
+          "concern": null
+        },
+        {
+          "name": "MercyCare HMO, Inc.",
+          "state": "IL",
+          "denial_rate": 0.11185941751036975,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 7524,
+          "z": -0.97,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of North Carolina, Inc",
+          "state": "NC",
+          "denial_rate": 0.2985325673197482,
+          "overturn_rate": 0.41308658294778583,
+          "appeals": 1513,
+          "claims_denied": 436437,
+          "z": 1.53,
+          "concern": null
+        },
+        {
+          "name": "Florida Health Care Plan, Inc.",
+          "state": "FL",
+          "denial_rate": 0.1398888982728042,
+          "overturn_rate": 0.2353823088455772,
+          "appeals": 667,
+          "claims_denied": 405810,
+          "z": -0.59,
+          "concern": null
+        },
+        {
+          "name": "Providence Health Plan",
+          "state": "OR",
+          "denial_rate": 0.03810316736313334,
+          "overturn_rate": 0.7621832358674464,
+          "appeals": 513,
+          "claims_denied": 19130,
+          "z": -1.95,
+          "concern": null
+        },
+        {
+          "name": "Cigna Health and Life Insurance Company",
+          "state": "MS",
+          "denial_rate": 0.2562293206976839,
+          "overturn_rate": 0.4,
+          "appeals": 95,
+          "claims_denied": 200728,
+          "z": 0.97,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "NE",
+          "denial_rate": 0.18298481087221777,
+          "overturn_rate": 0.5792759051186017,
+          "appeals": 801,
+          "claims_denied": 4349,
+          "z": -0.01,
+          "concern": null
+        },
+        {
+          "name": "Medica Community Health Plan",
+          "state": "WI",
+          "denial_rate": 0.13960492227979274,
+          "overturn_rate": 0.5703703703703704,
+          "appeals": 135,
+          "claims_denied": 60354,
+          "z": -0.59,
+          "concern": null
+        },
+        {
+          "name": "MercyCare HMO, Inc.",
+          "state": "WI",
+          "denial_rate": 0.08519754964049779,
+          "overturn_rate": 0.6666666666666666,
+          "appeals": 18,
+          "claims_denied": 18094,
+          "z": -1.32,
+          "concern": null
+        },
+        {
+          "name": "Meridian Health Plan of Michigan, Inc.",
+          "state": "MI",
+          "denial_rate": 0.1850901799119037,
+          "overturn_rate": 0.39589442815249265,
+          "appeals": 341,
+          "claims_denied": 231404,
+          "z": 0.02,
+          "concern": null
+        },
+        {
+          "name": "Aetna Health Inc.  (a TX corp.)",
+          "state": "TX",
+          "denial_rate": 0.2733851111163892,
+          "overturn_rate": 0.2131419105466593,
+          "appeals": 1811,
+          "claims_denied": 2209984,
+          "z": 1.2,
+          "concern": null
+        },
+        {
+          "name": "Harvard Pilgrim Health Care of NE",
+          "state": "NH",
+          "denial_rate": 0.2544641240175305,
+          "overturn_rate": 0.5348837209302325,
+          "appeals": 43,
+          "claims_denied": 28102,
+          "z": 0.94,
+          "concern": null
+        },
+        {
+          "name": "Avera Health Plans, Inc.",
+          "state": "SD",
+          "denial_rate": 0.01457531115120762,
+          "overturn_rate": 0.547085201793722,
+          "appeals": 223,
+          "claims_denied": 6325,
+          "z": -2.27,
+          "concern": null
+        },
+        {
+          "name": "Kaiser Foundation Health Plan, Inc.",
+          "state": "HI",
+          "denial_rate": 0.05026656511805026,
+          "overturn_rate": null,
+          "appeals": 21,
+          "claims_denied": 660,
+          "z": -1.79,
+          "concern": null
+        },
+        {
+          "name": "University of Michigan Health Plan",
+          "state": "MI",
+          "denial_rate": 0.1820636470272889,
+          "overturn_rate": 0.3142857142857143,
+          "appeals": 35,
+          "claims_denied": 74036,
+          "z": -0.03,
+          "concern": null
+        },
+        {
+          "name": "Aetna Health Inc. (a PA corp.)",
+          "state": "NC",
+          "denial_rate": 0.1550666008811115,
+          "overturn_rate": 0.44832826747720367,
+          "appeals": 658,
+          "claims_denied": 1330377,
+          "z": -0.39,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "AR",
+          "denial_rate": 0.12421595373981277,
+          "overturn_rate": 0.34371029224904703,
+          "appeals": 1574,
+          "claims_denied": 745529,
+          "z": -0.8,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "OK",
+          "denial_rate": 0.2126292378573632,
+          "overturn_rate": 0.34767025089605735,
+          "appeals": 279,
+          "claims_denied": 170942,
+          "z": 0.38,
+          "concern": null
+        },
+        {
+          "name": "Community First Insurance Plans",
+          "state": "TX",
+          "denial_rate": 0.25613234455219624,
+          "overturn_rate": null,
+          "appeals": 16,
+          "claims_denied": 23797,
+          "z": 0.97,
+          "concern": null
+        },
+        {
+          "name": "BridgeSpan Health Company",
+          "state": "OR",
+          "denial_rate": 0.08920477956324681,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 866,
+          "z": -1.27,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Ohio, Inc.",
+          "state": "OH",
+          "denial_rate": 0.24106646826209724,
+          "overturn_rate": 0.29651162790697677,
+          "appeals": 516,
+          "claims_denied": 294198,
+          "z": 0.76,
+          "concern": null
+        },
+        {
+          "name": "CHRISTUS Health Plan",
+          "state": "TX",
+          "denial_rate": 0.14673239158051682,
+          "overturn_rate": 0.12751677852348994,
+          "appeals": 596,
+          "claims_denied": 115734,
+          "z": -0.5,
+          "concern": null
+        },
+        {
+          "name": "Capital Health Plan",
+          "state": "FL",
+          "denial_rate": 0.07827208762638183,
+          "overturn_rate": 0.38095238095238093,
+          "appeals": 147,
+          "claims_denied": 31671,
+          "z": -1.41,
+          "concern": null
+        },
+        {
+          "name": "Aetna Health Inc. (a PA corp.)",
+          "state": "DE",
+          "denial_rate": 0.2234934913573762,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 13615,
+          "z": 0.53,
+          "concern": null
+        },
+        {
+          "name": "AmeriHealth Caritas Florida, Inc.",
+          "state": "FL",
+          "denial_rate": 0.5389930898321816,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 13650,
+          "z": 4.75,
+          "concern": "extreme_denials_unverifiable"
+        },
+        {
+          "name": "UnitedHealthcare of Florida, Inc.",
+          "state": "FL",
+          "denial_rate": 0.3240797214509542,
+          "overturn_rate": 0.2756598240469208,
+          "appeals": 2728,
+          "claims_denied": 740703,
+          "z": 1.88,
+          "concern": null
+        },
+        {
+          "name": "SelectHealth, Inc.",
+          "state": "UT",
+          "denial_rate": 0.18619037766265678,
+          "overturn_rate": 0.3216216216216216,
+          "appeals": 4440,
+          "claims_denied": 1444289,
+          "z": 0.03,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Insurance Company",
+          "state": "TN",
+          "denial_rate": 0.30380131362889984,
+          "overturn_rate": 0.3814247069431921,
+          "appeals": 1109,
+          "claims_denied": 333027,
+          "z": 1.6,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Insurance Company",
+          "state": "AL",
+          "denial_rate": 0.4157937544672565,
+          "overturn_rate": 0.2914572864321608,
+          "appeals": 597,
+          "claims_denied": 320530,
+          "z": 3.1,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.21739818109924872,
+          "overturn_rate": 0.4917864476386037,
+          "appeals": 974,
+          "claims_denied": 19243,
+          "z": 0.45,
+          "concern": null
+        },
+        {
+          "name": "Oscar Health Plan of North Carolina, Inc",
+          "state": "NC",
+          "denial_rate": 0.2280440052209584,
+          "overturn_rate": 0.36619718309859156,
+          "appeals": 71,
+          "claims_denied": 1223,
+          "z": 0.59,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Insurance Company",
+          "state": "LA",
+          "denial_rate": 0.41049937939820763,
+          "overturn_rate": 0.23076923076923078,
+          "appeals": 143,
+          "claims_denied": 75075,
+          "z": 3.03,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "TN",
+          "denial_rate": 0.15314488306001434,
+          "overturn_rate": 0.4639175257731959,
+          "appeals": 1746,
+          "claims_denied": 817958,
+          "z": -0.41,
+          "concern": null
+        },
+        {
+          "name": "QCA Health Plan, Inc.",
+          "state": "AR",
+          "denial_rate": 0.12254668583846424,
+          "overturn_rate": 0.3220338983050847,
+          "appeals": 413,
+          "claims_denied": 229346,
+          "z": -0.82,
+          "concern": null
+        },
+        {
+          "name": "Kaiser Foundation Healthplan of the NW",
+          "state": "OR",
+          "denial_rate": 0.07300843486410497,
+          "overturn_rate": 0.43137254901960786,
+          "appeals": 51,
+          "claims_denied": 779,
+          "z": -1.49,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Community Plan, Inc.",
+          "state": "MI",
+          "denial_rate": 0.3864439691136091,
+          "overturn_rate": 0.23737373737373738,
+          "appeals": 198,
+          "claims_denied": 76422,
+          "z": 2.71,
+          "concern": null
+        },
+        {
+          "name": "Sendero Health Plans, Inc.",
+          "state": "TX",
+          "denial_rate": 0.2802912219087268,
+          "overturn_rate": null,
+          "appeals": 12,
+          "claims_denied": 71030,
+          "z": 1.29,
+          "concern": null
+        },
+        {
+          "name": "AmeriHealth Caritas VIP Next, Inc.",
+          "state": "DE",
+          "denial_rate": 0.4986868981616574,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1709,
+          "z": 4.21,
+          "concern": "extreme_denials_unverifiable"
+        },
+        {
+          "name": "Select Health of South Carolina",
+          "state": "SC",
+          "denial_rate": 0.4279985655136439,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 26256,
+          "z": 3.27,
+          "concern": null
+        },
+        {
+          "name": "Medica Health Plans",
+          "state": "ND",
+          "denial_rate": 0.19598828371213525,
+          "overturn_rate": 0.4827586206896552,
+          "appeals": 29,
+          "claims_denied": 10572,
+          "z": 0.16,
+          "concern": null
+        },
+        {
+          "name": "Cigna HealthCare of North Carolina, Inc.",
+          "state": "NC",
+          "denial_rate": 0.17161133337743506,
+          "overturn_rate": 0.2357142857142857,
+          "appeals": 140,
+          "claims_denied": 178998,
+          "z": -0.17,
+          "concern": null
+        },
+        {
+          "name": "Paramount Insurance Company",
+          "state": "OH",
+          "denial_rate": 0.1538193379256491,
+          "overturn_rate": 0.7241379310344828,
+          "appeals": 29,
+          "claims_denied": 22062,
+          "z": -0.4,
+          "concern": null
+        },
+        {
+          "name": "McLaren Health Plan Community",
+          "state": "MI",
+          "denial_rate": 0.16012616342105634,
+          "overturn_rate": 0.7407407407407407,
+          "appeals": 27,
+          "claims_denied": 22744,
+          "z": -0.32,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "NH",
+          "denial_rate": 0.12108412530799015,
+          "overturn_rate": 0.7169811320754716,
+          "appeals": 424,
+          "claims_denied": 87720,
+          "z": -0.84,
+          "concern": null
+        },
+        {
+          "name": "Highmark BCBSD Inc.",
+          "state": "DE",
+          "denial_rate": 0.13793729362073523,
+          "overturn_rate": 0.29591836734693877,
+          "appeals": 196,
+          "claims_denied": 146665,
+          "z": -0.62,
+          "concern": null
+        },
+        {
+          "name": "Cigna HealthCare of Texas, Inc.",
+          "state": "TX",
+          "denial_rate": 0.22133393766125095,
+          "overturn_rate": 0.5902992776057792,
+          "appeals": 969,
+          "claims_denied": 1396626,
+          "z": 0.5,
+          "concern": null
+        },
+        {
+          "name": "Ambetter of North Carolina Inc.",
+          "state": "NC",
+          "denial_rate": 0.15330386820008973,
+          "overturn_rate": 0.4101497504159734,
+          "appeals": 1202,
+          "claims_denied": 535759,
+          "z": -0.41,
+          "concern": null
+        },
+        {
+          "name": "CareSource Ohio, Inc.",
+          "state": "OH",
+          "denial_rate": 0.2137654127165654,
+          "overturn_rate": 0.43190661478599224,
+          "appeals": 257,
+          "claims_denied": 445243,
+          "z": 0.4,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "MI",
+          "denial_rate": 0.1932065906210393,
+          "overturn_rate": 0.5081967213114754,
+          "appeals": 305,
+          "claims_denied": 3811,
+          "z": 0.12,
+          "concern": null
+        },
+        {
+          "name": "Regence BlueCross BlueShield of Oregon",
+          "state": "OR",
+          "denial_rate": 0.09439627360806563,
+          "overturn_rate": 0.14285714285714285,
+          "appeals": 616,
+          "claims_denied": 36721,
+          "z": -1.2,
+          "concern": null
+        },
+        {
+          "name": "Absolute Total Care, Inc",
+          "state": "SC",
+          "denial_rate": 0.14721374458177175,
+          "overturn_rate": 0.5033112582781457,
+          "appeals": 755,
+          "claims_denied": 594074,
+          "z": -0.49,
+          "concern": null
+        },
+        {
+          "name": "Compcare Health Serv Ins Co(Anthem BCBS)",
+          "state": "WI",
+          "denial_rate": 0.07703321420608857,
+          "overturn_rate": 0.4177215189873418,
+          "appeals": 158,
+          "claims_denied": 81887,
+          "z": -1.43,
+          "concern": null
+        },
+        {
+          "name": "Molina Healthcare of Mississippi, Inc",
+          "state": "MS",
+          "denial_rate": 0.23162948719461124,
+          "overturn_rate": 0.42857142857142855,
+          "appeals": 28,
+          "claims_denied": 58905,
+          "z": 0.64,
+          "concern": null
+        },
+        {
+          "name": "Network Health Plan",
+          "state": "WI",
+          "denial_rate": 0.15133649100725383,
+          "overturn_rate": null,
+          "appeals": 20,
+          "claims_denied": 36552,
+          "z": -0.44,
+          "concern": null
+        },
+        {
+          "name": "Quartz Health Benefit Plans Corporation",
+          "state": "IL",
+          "denial_rate": 0.06873193010880344,
+          "overturn_rate": null,
+          "appeals": 18,
+          "claims_denied": 4921,
+          "z": -1.54,
+          "concern": null
+        },
+        {
+          "name": "Sunshine State Health Plan",
+          "state": "FL",
+          "denial_rate": 0.1688821735676659,
+          "overturn_rate": 0.35422602089268757,
+          "appeals": 1053,
+          "claims_denied": 922681,
+          "z": -0.2,
+          "concern": null
+        },
+        {
+          "name": "Aspirus Health Plan, Inc.",
+          "state": "WI",
+          "denial_rate": 0.11297316872733688,
+          "overturn_rate": 0.3055555555555556,
+          "appeals": 36,
+          "claims_denied": 48665,
+          "z": -0.95,
+          "concern": null
+        },
+        {
+          "name": "Superior Health Plan",
+          "state": "TX",
+          "denial_rate": 0.15306250470869595,
+          "overturn_rate": 0.5754189944134078,
+          "appeals": 1253,
+          "claims_denied": 983317,
+          "z": -0.41,
+          "concern": null
+        },
+        {
+          "name": "Common Ground Healthcare Cooperative",
+          "state": "WI",
+          "denial_rate": 0.1609810354095049,
+          "overturn_rate": 0.33548387096774196,
+          "appeals": 310,
+          "claims_denied": 475594,
+          "z": -0.31,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross Blue Shield of Oklahoma",
+          "state": "OK",
+          "denial_rate": 0.23448779551179175,
+          "overturn_rate": 0.23782416192283365,
+          "appeals": 1581,
+          "claims_denied": 1960087,
+          "z": 0.68,
+          "concern": null
+        },
+        {
+          "name": "Sanford Health Plan",
+          "state": "ND",
+          "denial_rate": 0.048583967552078014,
+          "overturn_rate": 0.6370370370370371,
+          "appeals": 135,
+          "claims_denied": 20447,
+          "z": -1.81,
+          "concern": null
+        },
+        {
+          "name": "Ambetter of Magnolia Inc.",
+          "state": "MS",
+          "denial_rate": 0.13673123782867497,
+          "overturn_rate": 0.4459601259181532,
+          "appeals": 953,
+          "claims_denied": 1146839,
+          "z": -0.63,
+          "concern": null
+        },
+        {
+          "name": "Health Net of Arizona, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.13045843909557508,
+          "overturn_rate": 0.6211072664359861,
+          "appeals": 578,
+          "claims_denied": 468270,
+          "z": -0.72,
+          "concern": null
+        },
+        {
+          "name": "Oscar Insurance Company",
+          "state": "OK",
+          "denial_rate": 0.2150957348918702,
+          "overturn_rate": 0.39311043566362713,
+          "appeals": 1974,
+          "claims_denied": 51193,
+          "z": 0.42,
+          "concern": null
+        },
+        {
+          "name": "Medica Insurance Company",
+          "state": "IA",
+          "denial_rate": 0.18331044340588945,
+          "overturn_rate": 0.4483985765124555,
+          "appeals": 281,
+          "claims_denied": 111316,
+          "z": -0.01,
+          "concern": null
+        },
+        {
+          "name": "Blue Cross and Blue Shield of Kansas City",
+          "state": "KS",
+          "denial_rate": 0.20695532054214544,
+          "overturn_rate": 0.4444444444444444,
+          "appeals": 27,
+          "claims_denied": 23072,
+          "z": 0.31,
+          "concern": null
+        },
+        {
+          "name": "Cigna Health and Life Insurance Company",
+          "state": "IN",
+          "denial_rate": 0.2781502280999688,
+          "overturn_rate": 0.45098039215686275,
+          "appeals": 51,
+          "claims_denied": 97127,
+          "z": 1.26,
+          "concern": null
+        },
+        {
+          "name": "Group Health Cooperative of South Central Wisconsin",
+          "state": "WI",
+          "denial_rate": 0.08435439040836801,
+          "overturn_rate": null,
+          "appeals": 27,
+          "claims_denied": 20516,
+          "z": -1.33,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Insurance Company",
+          "state": "KS",
+          "denial_rate": 0.35876266235783977,
+          "overturn_rate": 0.3921852387843705,
+          "appeals": 691,
+          "claims_denied": 115457,
+          "z": 2.34,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.26575104623037116,
+          "overturn_rate": 0.298811544991511,
+          "appeals": 589,
+          "claims_denied": 124591,
+          "z": 1.09,
+          "concern": null
+        },
+        {
+          "name": "Cox Health Systems Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.14975711311589174,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1079,
+          "z": -0.46,
+          "concern": null
+        },
+        {
+          "name": "Louisiana Health Service & Indemnity Company",
+          "state": "LA",
+          "denial_rate": 0.13370246640356118,
+          "overturn_rate": 0.352112676056338,
+          "appeals": 213,
+          "claims_denied": 79444,
+          "z": -0.67,
+          "concern": null
+        },
+        {
+          "name": "UnitedHealthcare of Mississippi, Inc.",
+          "state": "MS",
+          "denial_rate": 0.31920031371038204,
+          "overturn_rate": 0.328125,
+          "appeals": 64,
+          "claims_denied": 46398,
+          "z": 1.81,
+          "concern": null
+        },
+        {
+          "name": "Cigna HealthCare of Arizona, Inc",
+          "state": "AZ",
+          "denial_rate": 0.15480822918008846,
+          "overturn_rate": 0.4838709677419355,
+          "appeals": 31,
+          "claims_denied": 36044,
+          "z": -0.39,
+          "concern": null
+        },
+        {
+          "name": "Blue Care Network of Michigan",
+          "state": "MI",
+          "denial_rate": 0.18214980536745592,
+          "overturn_rate": 0.8861788617886179,
+          "appeals": 123,
+          "claims_denied": 553611,
+          "z": -0.02,
+          "concern": null
+        },
+        {
+          "name": "CHRISTUS Health Plan Louisiana",
+          "state": "LA",
+          "denial_rate": 0.17251204539340131,
+          "overturn_rate": 0.10384615384615385,
+          "appeals": 260,
+          "claims_denied": 14107,
+          "z": -0.15,
+          "concern": null
+        },
+        {
+          "name": "CommunityCare HMO Inc.",
+          "state": "OK",
+          "denial_rate": 0.1024989205198533,
+          "overturn_rate": 0.4859154929577465,
+          "appeals": 142,
+          "claims_denied": 16854,
+          "z": -1.09,
+          "concern": null
+        },
+        {
+          "name": "Aetna Health Inc. (a PA corp.)",
+          "state": "IL",
+          "denial_rate": 0.20188467149793116,
+          "overturn_rate": 0.49056603773584906,
+          "appeals": 53,
+          "claims_denied": 33764,
+          "z": 0.24,
+          "concern": null
+        },
+        {
+          "name": "Cigna Health and Life Insurance Company",
+          "state": "TN",
+          "denial_rate": 0.18724391036549437,
+          "overturn_rate": 0.42431761786600497,
+          "appeals": 806,
+          "claims_denied": 829096,
+          "z": 0.04,
+          "concern": null
+        },
+        {
+          "name": "Celtic Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.13376331119223864,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 749839,
+          "z": -0.67,
+          "concern": null
+        },
+        {
+          "name": "Medical Health Insuring Corp. of Ohio",
+          "state": "OH",
+          "denial_rate": 0.131774389424258,
+          "overturn_rate": 0.5319567354965585,
+          "appeals": 1017,
+          "claims_denied": 227431,
+          "z": -0.7,
+          "concern": null
+        }
+      ]
+    },
+    {
+      "name": "Individual SADP",
+      "issuers": 114,
+      "analysed": true,
+      "median_denial_rate": 0.3225184145913714,
+      "median_overturn_rate": 0.4430379746835443,
+      "points": [
+        {
+          "name": "Dentegra Insurance Company",
+          "state": "KS",
+          "denial_rate": 0.45366327025715675,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 935,
+          "z": 1.3,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest National Insurance Company, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.44594594594594594,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 594,
+          "z": 1.23,
+          "concern": null
+        },
+        {
+          "name": "TRUASSURE INSURANCE COMPANY",
+          "state": "OK",
+          "denial_rate": 0.211424819435325,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 322,
+          "z": -0.79,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "TX",
+          "denial_rate": 0.5116049057101411,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 7759,
+          "z": 1.79,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "OK",
+          "denial_rate": 0.3138653588943379,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1408,
+          "z": 0.09,
+          "concern": null
+        },
+        {
+          "name": "Alpha Dental of Utah, Inc.",
+          "state": "UT",
+          "denial_rate": 0.4447415329768271,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 2495,
+          "z": 1.22,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "FL",
+          "denial_rate": 0.597171875,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 76438,
+          "z": 2.53,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "FL",
+          "denial_rate": 0.3221189136285784,
+          "overturn_rate": null,
+          "appeals": 14,
+          "claims_denied": 15798,
+          "z": 0.16,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "AZ",
+          "denial_rate": 0.4183195095564371,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1160,
+          "z": 0.99,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "AL",
+          "denial_rate": 0.4531134173461824,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2445,
+          "z": 1.29,
+          "concern": null
+        },
+        {
+          "name": "Dental Care Plus, Inc.",
+          "state": "AL",
+          "denial_rate": 0.4136874361593463,
+          "overturn_rate": null,
+          "appeals": 14,
+          "claims_denied": 1215,
+          "z": 0.95,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "LA",
+          "denial_rate": 0.2950715421303657,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 928,
+          "z": -0.07,
+          "concern": null
+        },
+        {
+          "name": "Oregon Dental Service",
+          "state": "AK",
+          "denial_rate": 0.19557801642451042,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1548,
+          "z": -0.92,
+          "concern": null
+        },
+        {
+          "name": "Dental Care Plus, Inc.",
+          "state": "MI",
+          "denial_rate": 0.35010526315789475,
+          "overturn_rate": null,
+          "appeals": 48,
+          "claims_denied": 1663,
+          "z": 0.41,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "OK",
+          "denial_rate": 0.2483710233806056,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1296,
+          "z": -0.47,
+          "concern": null
+        },
+        {
+          "name": "Alpha Dental Programs, Inc.",
+          "state": "TX",
+          "denial_rate": 0.42610476509948625,
+          "overturn_rate": 0.4430379746835443,
+          "appeals": 79,
+          "claims_denied": 48270,
+          "z": 1.06,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "TX",
+          "denial_rate": 0.3184120920189353,
+          "overturn_rate": 0.12903225806451613,
+          "appeals": 217,
+          "claims_denied": 53676,
+          "z": 0.13,
+          "concern": null
+        },
+        {
+          "name": "Dental Health Services, Inc.",
+          "state": "OR",
+          "denial_rate": 0.4990494296577947,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1575,
+          "z": 1.69,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Delaware, Inc.",
+          "state": "DE",
+          "denial_rate": 0.2165097755249819,
+          "overturn_rate": null,
+          "appeals": 15,
+          "claims_denied": 1495,
+          "z": -0.74,
+          "concern": null
+        },
+        {
+          "name": "Managed DentalGuard,Inc.",
+          "state": "TX",
+          "denial_rate": 0.6702599731062304,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 59814,
+          "z": 3.16,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Minnesota",
+          "state": "ND",
+          "denial_rate": 0.27036756347101176,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1427,
+          "z": -0.28,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Plan of Arkansas, Inc.",
+          "state": "AR",
+          "denial_rate": 0.18106574176257292,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2297,
+          "z": -1.05,
+          "concern": null
+        },
+        {
+          "name": "Oregon Dental Service, DBA Delta Dental Plan of Oregon",
+          "state": "OR",
+          "denial_rate": 0.16514739337246853,
+          "overturn_rate": null,
+          "appeals": 26,
+          "claims_denied": 10381,
+          "z": -1.18,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "AL",
+          "denial_rate": 0.269287677023885,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2548,
+          "z": -0.29,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Plan of Indiana, Inc.",
+          "state": "IN",
+          "denial_rate": 0.24459284361606698,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 4908,
+          "z": -0.5,
+          "concern": null
+        },
+        {
+          "name": "Arizona Dental Insurance Service, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.2994086201998812,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 11594,
+          "z": -0.03,
+          "concern": null
+        },
+        {
+          "name": "Florida Combined Life Insurance Company",
+          "state": "FL",
+          "denial_rate": 0.34647692279659625,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 19015,
+          "z": 0.37,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.25335403038030824,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 2285,
+          "z": -0.43,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "NC",
+          "denial_rate": 0.24871648602395893,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 5232,
+          "z": -0.47,
+          "concern": null
+        },
+        {
+          "name": "Health Resources, Inc.",
+          "state": "IN",
+          "denial_rate": 0.19579751671442217,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 205,
+          "z": -0.92,
+          "concern": null
+        },
+        {
+          "name": "Solstice Healthplans of Texas, Inc.",
+          "state": "TX",
+          "denial_rate": 0.5407643312101911,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1698,
+          "z": 2.04,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "UT",
+          "denial_rate": 0.38658405172413796,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1435,
+          "z": 0.72,
+          "concern": null
+        },
+        {
+          "name": "Solstice Healthplans of Arizona, Inc.",
+          "state": "AZ",
+          "denial_rate": 0.5876288659793815,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1596,
+          "z": 2.45,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "WI",
+          "denial_rate": 0.34974689369535206,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 760,
+          "z": 0.4,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Plan of Michigan, Inc.",
+          "state": "MI",
+          "denial_rate": 0.17145877378435517,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 17031,
+          "z": -1.13,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest National Insurance Company, Inc.",
+          "state": "OH",
+          "denial_rate": 0.34851095249815406,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1416,
+          "z": 0.39,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "MO",
+          "denial_rate": 0.2812091265804389,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1935,
+          "z": -0.19,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "UT",
+          "denial_rate": 0.20423225892248617,
+          "overturn_rate": null,
+          "appeals": 11,
+          "claims_denied": 24572,
+          "z": -0.85,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "MO",
+          "denial_rate": 0.33116136450747413,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 864,
+          "z": 0.24,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "TX",
+          "denial_rate": 0.27029104887424493,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2461,
+          "z": -0.28,
+          "concern": null
+        },
+        {
+          "name": "Solstice of Illinois, Inc.",
+          "state": "IL",
+          "denial_rate": 0.08344549125168237,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 124,
+          "z": -1.89,
+          "concern": null
+        },
+        {
+          "name": "Solstice Benefits, Inc.",
+          "state": "FL",
+          "denial_rate": 0.37592575232024,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 8020,
+          "z": 0.63,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest USA Insurance Company, Inc.",
+          "state": "IN",
+          "denial_rate": 0.30277349768875195,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 393,
+          "z": -0.0,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest USA Insurance Company, Inc.",
+          "state": "TN",
+          "denial_rate": 0.34773218142548595,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 644,
+          "z": 0.39,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health,",
+          "state": "OH",
+          "denial_rate": 0.3225184145913714,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1839,
+          "z": 0.17,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "AL",
+          "denial_rate": 0.2541313648183877,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 6059,
+          "z": -0.42,
+          "concern": null
+        },
+        {
+          "name": "Humana Health Benefit Plan of Louisiana, Inc.",
+          "state": "LA",
+          "denial_rate": 0.2457705321439557,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 799,
+          "z": -0.49,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Nebraska",
+          "state": "NE",
+          "denial_rate": 0.2632616597868277,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 4273,
+          "z": -0.34,
+          "concern": null
+        },
+        {
+          "name": "Dentegra Insurance Company",
+          "state": "OK",
+          "denial_rate": 0.42385321100917434,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 462,
+          "z": 1.04,
+          "concern": null
+        },
+        {
+          "name": "Hawaii Dental Service",
+          "state": "HI",
+          "denial_rate": 0.07966101694915254,
+          "overturn_rate": 0.5747126436781609,
+          "appeals": 87,
+          "claims_denied": 752,
+          "z": -1.92,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "AL",
+          "denial_rate": 0.45717131474103584,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1377,
+          "z": 1.33,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "UT",
+          "denial_rate": 0.29056472025835733,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 3329,
+          "z": -0.11,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "FL",
+          "denial_rate": 0.33486164736164736,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 4163,
+          "z": 0.27,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "MO",
+          "denial_rate": 0.4058995611896636,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1665,
+          "z": 0.89,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "MS",
+          "denial_rate": 0.2311374515614315,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1014,
+          "z": -0.62,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "MS",
+          "denial_rate": 0.4283033033033033,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1141,
+          "z": 1.08,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "MS",
+          "denial_rate": 0.24684029107621602,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1289,
+          "z": -0.48,
+          "concern": null
+        },
+        {
+          "name": "Dental Care Plus, Inc.",
+          "state": "WI",
+          "denial_rate": 0.41473448017950637,
+          "overturn_rate": null,
+          "appeals": 30,
+          "claims_denied": 1109,
+          "z": 0.96,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "IA",
+          "denial_rate": 0.45977011494252873,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 520,
+          "z": 1.35,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "AZ",
+          "denial_rate": 0.32854255558050754,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2926,
+          "z": 0.22,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "NC",
+          "denial_rate": 0.3510184746565609,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 13338,
+          "z": 0.41,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of North Carolina",
+          "state": "NC",
+          "denial_rate": 0.22868592906608542,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 26649,
+          "z": -0.64,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest USA Insurance Company, Inc.",
+          "state": "TX",
+          "denial_rate": 0.6040494938132733,
+          "overturn_rate": null,
+          "appeals": 55,
+          "claims_denied": 3222,
+          "z": 2.59,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "IN",
+          "denial_rate": 0.45807540799099605,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 814,
+          "z": 1.33,
+          "concern": null
+        },
+        {
+          "name": "DentaQuest of Florida, Inc.",
+          "state": "FL",
+          "denial_rate": 0.6285436184450663,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 5166,
+          "z": 2.8,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Illinois",
+          "state": "IL",
+          "denial_rate": 0.22062776380820254,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 5089,
+          "z": -0.71,
+          "concern": null
+        },
+        {
+          "name": "Dentegra Insurance Company",
+          "state": "IA",
+          "denial_rate": 0.49793217535153017,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 602,
+          "z": 1.68,
+          "concern": null
+        },
+        {
+          "name": "Dental Care Plus, Inc.",
+          "state": "UT",
+          "denial_rate": 0.39759036144578314,
+          "overturn_rate": null,
+          "appeals": 35,
+          "claims_denied": 759,
+          "z": 0.81,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "KS",
+          "denial_rate": 0.3914303141201586,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2567,
+          "z": 0.76,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "MI",
+          "denial_rate": 0.1866616285660306,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 988,
+          "z": -1.0,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "TX",
+          "denial_rate": 0.2387982930732302,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 12535,
+          "z": -0.55,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Iowa",
+          "state": "IA",
+          "denial_rate": 0.19023714082343685,
+          "overturn_rate": null,
+          "appeals": 17,
+          "claims_denied": 5078,
+          "z": -0.97,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "AZ",
+          "denial_rate": 0.27727214459684657,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 4326,
+          "z": -0.22,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "MI",
+          "denial_rate": 0.40120663650075417,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1330,
+          "z": 0.84,
+          "concern": null
+        },
+        {
+          "name": "Dominion Dental Services, Inc.",
+          "state": "NC",
+          "denial_rate": 0.23669997299486903,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1753,
+          "z": -0.57,
+          "concern": null
+        },
+        {
+          "name": "Dominion Dental Services, Inc.",
+          "state": "DE",
+          "denial_rate": 0.20250685468076773,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 517,
+          "z": -0.86,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "OH",
+          "denial_rate": 0.4106234096692112,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1291,
+          "z": 0.93,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "IL",
+          "denial_rate": 0.2507745169830451,
+          "overturn_rate": null,
+          "appeals": 14,
+          "claims_denied": 8904,
+          "z": -0.45,
+          "concern": null
+        },
+        {
+          "name": "Dentegra Insurance Company",
+          "state": "OR",
+          "denial_rate": 0.4498654104979812,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 1337,
+          "z": 1.26,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "WI",
+          "denial_rate": 0.37220517316966245,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 849,
+          "z": 0.6,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "UT",
+          "denial_rate": 0.292336952214914,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 3689,
+          "z": -0.09,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "MT",
+          "denial_rate": 0.23982125124131082,
+          "overturn_rate": null,
+          "appeals": 23,
+          "claims_denied": 1932,
+          "z": -0.54,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "NH",
+          "denial_rate": 0.3564705882352941,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 909,
+          "z": 0.46,
+          "concern": null
+        },
+        {
+          "name": "USAble Mutual Insurance Company",
+          "state": "AR",
+          "denial_rate": 0.16250012909412495,
+          "overturn_rate": 0.3129679144385027,
+          "appeals": 7480,
+          "claims_denied": 959814,
+          "z": -1.21,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of West Virginia",
+          "state": "WV",
+          "denial_rate": 0.2520888302550572,
+          "overturn_rate": null,
+          "appeals": 22,
+          "claims_denied": 2293,
+          "z": -0.44,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental of Wisconsin, Inc.",
+          "state": "WI",
+          "denial_rate": 0.1947989229058128,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 13311,
+          "z": -0.93,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "WY",
+          "denial_rate": 0.25280779826234373,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1193,
+          "z": -0.43,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "OK",
+          "denial_rate": 0.4187529747739172,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 4399,
+          "z": 1.0,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "TN",
+          "denial_rate": 0.2638199653779573,
+          "overturn_rate": null,
+          "appeals": 14,
+          "claims_denied": 9144,
+          "z": -0.34,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "AL",
+          "denial_rate": 0.3008373953255843,
+          "overturn_rate": null,
+          "appeals": 54,
+          "claims_denied": 4814,
+          "z": -0.02,
+          "concern": null
+        },
+        {
+          "name": "TRUASSURE INSURANCE COMPANY",
+          "state": "NC",
+          "denial_rate": 0.209056159952955,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 711,
+          "z": -0.81,
+          "concern": null
+        },
+        {
+          "name": "TRUASSURE INSURANCE COMPANY",
+          "state": "MO",
+          "denial_rate": 0.34497816593886466,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 395,
+          "z": 0.36,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "MS",
+          "denial_rate": 0.28951890034364264,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 337,
+          "z": -0.12,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "SC",
+          "denial_rate": 0.4305250803694443,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 8437,
+          "z": 1.1,
+          "concern": null
+        },
+        {
+          "name": "The Guardian Life Insurance Company",
+          "state": "IL",
+          "denial_rate": 0.4162546353522868,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 4041,
+          "z": 0.97,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Plan of Ohio, Inc.",
+          "state": "OH",
+          "denial_rate": 0.1991535277428957,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 8564,
+          "z": -0.89,
+          "concern": null
+        },
+        {
+          "name": "Cigna Health and Life Insurance Company",
+          "state": "AZ",
+          "denial_rate": 0.30311250713877785,
+          "overturn_rate": 0.4838709677419355,
+          "appeals": 31,
+          "claims_denied": 2123,
+          "z": 0.0,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "UT",
+          "denial_rate": 0.2823920265780731,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2125,
+          "z": -0.18,
+          "concern": null
+        },
+        {
+          "name": "First Commonwealth Insurance Company",
+          "state": "IL",
+          "denial_rate": 0.5164390490642388,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1021,
+          "z": 1.84,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Plan of New Hampshire, Inc.",
+          "state": "NH",
+          "denial_rate": 0.1746306105380541,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 3132,
+          "z": -1.1,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "MI",
+          "denial_rate": 0.30086481565771506,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1983,
+          "z": -0.02,
+          "concern": null
+        },
+        {
+          "name": "BCBS of Wisconsin(Anthem BCBS)",
+          "state": "WI",
+          "denial_rate": 0.10374456348785403,
+          "overturn_rate": null,
+          "appeals": 19,
+          "claims_denied": 978,
+          "z": -1.71,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "TN",
+          "denial_rate": 0.4381935483870968,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 3396,
+          "z": 1.16,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health,",
+          "state": "TX",
+          "denial_rate": 0.298285811269518,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 3515,
+          "z": -0.04,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "WI",
+          "denial_rate": 0.2029774872912128,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 559,
+          "z": -0.86,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "KS",
+          "denial_rate": 0.2607636068237206,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 2247,
+          "z": -0.36,
+          "concern": null
+        },
+        {
+          "name": "Paramount Insurance Company",
+          "state": "MI",
+          "denial_rate": 0.37755102040816324,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 555,
+          "z": 0.64,
+          "concern": null
+        },
+        {
+          "name": "Renaissance Life & Health Insurance Company of America",
+          "state": "SC",
+          "denial_rate": 0.2985197934595525,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 4336,
+          "z": -0.04,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health, Inc",
+          "state": "TN",
+          "denial_rate": 0.4256956779159266,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 2876,
+          "z": 1.06,
+          "concern": null
+        },
+        {
+          "name": "Humana Insurance Company",
+          "state": "OH",
+          "denial_rate": 0.17671774592189818,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 715,
+          "z": -1.09,
+          "concern": null
+        },
+        {
+          "name": "Delta Dental Insurance Company",
+          "state": "FL",
+          "denial_rate": 0.3509533655981018,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 78244,
+          "z": 0.41,
+          "concern": null
+        },
+        {
+          "name": "Guardian Life Insurance Company of America",
+          "state": "NE",
+          "denial_rate": 0.3470736312146004,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 1103,
+          "z": 0.38,
+          "concern": null
+        },
+        {
+          "name": "Educators Health Plans Life, Accident, and Health,",
+          "state": "FL",
+          "denial_rate": 0.3674626733418989,
+          "overturn_rate": null,
+          "appeals": null,
+          "claims_denied": 8294,
+          "z": 0.55,
+          "concern": null
+        },
+        {
+          "name": "Dominion Dental Services, Inc.",
+          "state": "OR",
+          "denial_rate": 0.2640526225867077,
+          "overturn_rate": null,
+          "appeals": 0,
+          "claims_denied": 3091,
+          "z": -0.33,
+          "concern": null
+        }
+      ]
+    },
+    {
+      "name": "SHOP",
+      "issuers": 5,
+      "analysed": false,
+      "median_denial_rate": 0.17869233185844605,
+      "median_overturn_rate": 0.43243243243243246,
+      "points": [
+        {
+          "name": "AultCare Insurance Company",
+          "state": "OH",
+          "denial_rate": 0.19642600071222374,
+          "overturn_rate": 0.43243243243243246,
+          "appeals": 74,
+          "claims_denied": 51849,
+          "z": 0.6,
+          "concern": null
+        },
+        {
+          "name": "Montana Health Cooperative",
+          "state": "MT",
+          "denial_rate": 0.05735704649867042,
+          "overturn_rate": 0.2255109231853418,
+          "appeals": 1419,
+          "claims_denied": 39839,
+          "z": -4.09,
+          "concern": null
+        },
+        {
+          "name": "Security Health Plan of Wisconsin, Inc.",
+          "state": "WI",
+          "denial_rate": 0.17869233185844605,
+          "overturn_rate": 0.6571428571428571,
+          "appeals": 140,
+          "claims_denied": 182583,
+          "z": 0.0,
+          "concern": null
+        },
+        {
+          "name": "Anthem Health Plans of NH(Anthem BCBS)",
+          "state": "NH",
+          "denial_rate": 0.1459534240258243,
+          "overturn_rate": 0.4336734693877551,
+          "appeals": 196,
+          "claims_denied": 3165,
+          "z": -1.1,
+          "concern": null
+        },
+        {
+          "name": "Matthew Thornton Hlth Plan(Anthem BCBS)",
+          "state": "NH",
+          "denial_rate": 0.1986807844763745,
+          "overturn_rate": 0.36475409836065575,
+          "appeals": 244,
+          "claims_denied": 377477,
+          "z": 0.67,
+          "concern": null
+        }
+      ]
+    }
+  ],
+  "funnel_market": "Individual QHP",
+  "tier_order": [
+    "denials_overturned_on_appeal",
+    "extreme_denials_upheld",
+    "extreme_denials_unverifiable"
+  ],
+  "tier_label": {
+    "denials_overturned_on_appeal": "Denied more than peers, and lost the appeals",
+    "extreme_denials_upheld": "Extreme denial rate, appeals largely stood",
+    "extreme_denials_unverifiable": "Extreme denial rate, no appeal outcomes reported"
+  },
+  "tier_note": {
+    "denials_overturned_on_appeal": "Two independent signals agreeing. The appeal outcome is the closest thing this dataset has to a verdict on whether a denial was correct.",
+    "extreme_denials_upheld": "Strict, and the appeal record does not contradict them.",
+    "extreme_denials_unverifiable": "No appeal outcomes were filed, so there is no way to tell whether these denials were justified. Stated rather than assumed either way."
+  },
+  "tier_tone": {
+    "denials_overturned_on_appeal": "critical",
+    "extreme_denials_upheld": "warning",
+    "extreme_denials_unverifiable": "warning"
+  },
+  "findings": [
+    {
+      "name": "Blue Cross and Blue Shield of Alabama",
+      "state": "AL",
+      "market": "Individual QHP",
+      "peers": 170,
+      "denial_rate": 0.34779067054449636,
+      "market_median": 0.18317159880533737,
+      "times_median": 1.898715045415448,
+      "z": 2.19,
+      "claims_received": 13033751,
+      "claims_denied": 4533017,
+      "overturn_rate": 0.4658959537572254,
+      "market_overturn_median": 0.42506592594144643,
+      "appeals": 1730,
+      "sigma": 3.44,
+      "concern": "denials_overturned_on_appeal"
+    },
+    {
+      "name": "UnitedHealthcare of Ohio, Inc.",
+      "state": "OH",
+      "market": "Individual QHP",
+      "peers": 170,
+      "denial_rate": 0.3643157348966948,
+      "market_median": 0.18317159880533737,
+      "times_median": 1.9889313478333799,
+      "z": 2.41,
+      "claims_received": 345239,
+      "claims_denied": 125776,
+      "overturn_rate": 0.47076023391812866,
+      "market_overturn_median": 0.42506592594144643,
+      "appeals": 342,
+      "sigma": 1.71,
+      "concern": "denials_overturned_on_appeal"
+    },
+    {
+      "name": "AmeriHealth Caritas North Carolina, Inc.",
+      "state": "NC",
+      "market": "Individual QHP",
+      "peers": 170,
+      "denial_rate": 0.391382717239385,
+      "market_median": 0.18317159880533737,
+      "times_median": 2.1366997929374443,
+      "z": 2.78,
+      "claims_received": 207490,
+      "claims_denied": 81208,
+      "overturn_rate": 0.7083333333333334,
+      "market_overturn_median": 0.42506592594144643,
+      "appeals": 48,
+      "sigma": 3.97,
+      "concern": "denials_overturned_on_appeal"
+    },
+    {
+      "name": "AmeriHealth Caritas Florida, Inc.",
+      "state": "FL",
+      "market": "Individual QHP",
+      "peers": 170,
+      "denial_rate": 0.5389930898321816,
+      "market_median": 0.18317159880533737,
+      "times_median": 2.942558198692079,
+      "z": 4.75,
+      "claims_received": 25325,
+      "claims_denied": 13650,
+      "overturn_rate": null,
+      "market_overturn_median": 0.42506592594144643,
+      "appeals": 0,
+      "sigma": null,
+      "concern": "extreme_denials_unverifiable"
+    },
+    {
+      "name": "AmeriHealth Caritas VIP Next, Inc.",
+      "state": "DE",
+      "market": "Individual QHP",
+      "peers": 170,
+      "denial_rate": 0.4986868981616574,
+      "market_median": 0.18317159880533737,
+      "times_median": 2.722512122043706,
+      "z": 4.21,
+      "claims_received": 3427,
+      "claims_denied": 1709,
+      "overturn_rate": null,
+      "market_overturn_median": 0.42506592594144643,
+      "appeals": 0,
+      "sigma": null,
+      "concern": "extreme_denials_unverifiable"
+    }
+  ]
+}

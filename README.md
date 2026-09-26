@@ -10,6 +10,8 @@ rows covering 326 issuers across 3 markets.
 Every number in the output is computed by SQL and a set of explicit rules. No
 language model is involved in deciding anything.
 
+**[Read the report &rarr;](https://kaavyadhir.github.io/denial-intelligence/)**
+
 ---
 
 ## The finding
@@ -177,14 +179,19 @@ pip install -r requirements-dev.txt
 # Download the source workbook into data/raw/
 #   https://data.healthcare.gov/datafile/py2025/transparency_in_coverage_PUF.xlsx
 
-python scripts/load_data.py
+python scripts/load_data.py        # build the database, print the findings
+python scripts/build_report.py     # render docs/index.html from that database
 ```
 
-Builds a SQLite database and prints the load report, the coverage summary and
-the tiered findings.
+`load_data.py` builds a SQLite database and prints the load report, the coverage
+summary and the tiered findings. `build_report.py` renders the same results as a
+single self-contained HTML page plus `docs/report.json`, so the numbers can be
+checked without reading markup. The page is a snapshot of one run rather than a
+live view, which is what makes it publishable as a static file and honest about
+being one year of data.
 
 ```bash
-pytest -q        # 83 tests
+pytest -q        # 86 tests
 ```
 
 ---
@@ -199,7 +206,9 @@ app/outliers.py    Modified z-score (MAD); one-sided proportion test.
 app/analysis.py    The rules: which issuers are reportable, and on what evidence.
 sql/schema.sql     plan_claims table.
 sql/metrics.sql    Every rate. Issuer dedup, market and state benchmarks.
-scripts/load_data.py
+scripts/load_data.py     Workbook -> database -> findings on stdout.
+scripts/build_report.py  Database -> docs/index.html + docs/report.json.
+docs/              The published report. GitHub Pages serves this folder.
 ```
 
 The split is deliberate: SQL computes every *rate*, `app/analysis.py` decides
