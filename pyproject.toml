@@ -1,0 +1,13 @@
+[tool.ruff]
+line-length = 92
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/F  pycodestyle + pyflakes   - the baseline
+# I    isort                    - import order, so diffs stay small
+# UP   pyupgrade                - no syntax older than the target version
+# B    flake8-bugbear           - the mistakes that pass review
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

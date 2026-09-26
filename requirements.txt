@@ -1,0 +1,5 @@
+# Runtime. Deliberately small - this project is SQL, numpy and the standard
+# library. Anything added here should be something the code actually imports.
+numpy>=1.26
+openpyxl>=3.1
+pydantic-settings>=2.3
