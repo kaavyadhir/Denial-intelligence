@@ -1,0 +1,178 @@
+// ===========================================================================
+// Denial Intelligence - DAX measures
+// ===========================================================================
+// Paste these into Power BI Desktop one at a time:
+//   Home -> New measure -> paste the formula (NOT the // comment lines)
+//
+// Every comment below is the reason the measure is written that way. If you
+// cannot explain the comment, do not put the measure in the report.
+// ===========================================================================
+
+
+// ---------------------------------------------------------------------------
+// 1. SCALE - how much of the file survived to the analysis
+// ---------------------------------------------------------------------------
+
+// Issuers in the file at all.
+Issuers Total = COUNTROWS ( fct_issuer )
+
+// Issuers with enough claim volume for a rate to mean anything (>= 1000
+// claims). An issuer with 40 claims and 20 denials is not a 50% denial rate,
+// it is noise.
+Issuers Eligible =
+CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[eligible] = 1 )
+
+// Issuers actually scored. A market needs >= 20 peers before "unusual" means
+// anything, so SHOP (5 issuers) is excluded entirely - not hidden, excluded,
+// and dim_market records why.
+Issuers Analysed =
+CALCULATE ( COUNTROWS ( fct_issuer ), NOT ISBLANK ( fct_issuer[modified_z] ) )
+
+Findings = CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[is_finding] = 1 )
+
+// 5 out of 289. Put this on a card - the tightness IS the product.
+Finding Rate =
+DIVIDE ( [Findings], [Issuers Analysed] )
+
+
+// ---------------------------------------------------------------------------
+// 2. RATES - the one place a BI interviewer will try to catch you
+// ---------------------------------------------------------------------------
+
+// Denial rate is a ratio of two SUMS, never an AVERAGE of per-issuer rates.
+// AVERAGE(denial_rate) gives a 9,000-claim issuer the same weight as a
+// 13-million-claim one. This is the single most common mistake in BI models
+// and the most likely thing you get asked about.
+Denial Rate =
+DIVIDE ( SUM ( fct_issuer[claims_denied] ), SUM ( fct_issuer[claims_received] ) )
+
+// The WRONG version, kept deliberately so you can show both side by side on
+// the model page and explain the gap. Do not use it in any headline visual.
+Denial Rate (unweighted - do not use) =
+AVERAGE ( fct_issuer[denial_rate] )
+
+// Median is the centre the outlier test is built on, so the report must show
+// the same statistic the maths used. MEDIANX iterates the issuer rows rather
+// than collapsing them, which keeps one issuer = one vote.
+Median Denial Rate =
+MEDIANX (
+    FILTER ( fct_issuer, NOT ISBLANK ( fct_issuer[denial_rate] ) ),
+    fct_issuer[denial_rate]
+)
+
+Overturn Rate =
+DIVIDE ( SUM ( fct_issuer[appeals_overturned] ), SUM ( fct_issuer[appeals_filed] ) )
+
+Median Overturn Rate =
+MEDIANX (
+    FILTER ( fct_issuer, NOT ISBLANK ( fct_issuer[overturn_rate] ) ),
+    fct_issuer[overturn_rate]
+)
+
+// How many times its own market's median an issuer denies at. The three main
+// findings all land near 2x - that is the headline number.
+Times Market Median =
+DIVIDE ( [Denial Rate], [Median Denial Rate] )
+
+
+// ---------------------------------------------------------------------------
+// 3. THE OUTLIER TEST
+// ---------------------------------------------------------------------------
+
+// Modified z-score, computed in Python on median + MAD and loaded as a column.
+// It is NOT recomputed in DAX on purpose: the statistic is tested in
+// tests/test_outliers.py, and a second implementation in the report layer
+// could drift from the one the findings were produced with.
+Max Modified Z = MAX ( fct_issuer[modified_z] )
+
+// The two thresholds. 3.5 is extreme on denial rate alone; 2.0 is merely
+// elevated and is only ever reported with corroborating appeal evidence.
+Outlier Threshold = 3.5
+Watch Threshold = 2.0
+
+Issuers Above Watch =
+CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[modified_z] > 2.0 )
+
+Issuers Above Outlier =
+CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[modified_z] > 3.5 )
+
+// The second signal: how many standard errors an issuer's overturn rate sits
+// above its market median. A one-sided proportion test, not "rate > median",
+// because appeal volumes in this file run from 34 to 2,220.
+Sigma Above Median = MAX ( fct_issuer[sigma_above_median] )
+
+Corroborated Findings =
+CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[corroborated] = 1 )
+
+// ** The discipline measure. ** 17 issuers cleared z > 2.0 and were NOT
+// reported, because the appeal evidence did not clear significance. Showing
+// what you threw away is more persuasive than showing what you kept.
+Elevated Not Reported =
+CALCULATE (
+    COUNTROWS ( fct_issuer ),
+    fct_issuer[tier] = "Elevated, not corroborated"
+)
+
+
+// ---------------------------------------------------------------------------
+// 4. MISSING IS NOT ZERO
+// ---------------------------------------------------------------------------
+
+// An issuer that filed no appeal data has NO overturn rate. It does not have
+// an overturn rate of 0% - 0% would read as "nobody successfully appealed",
+// which looks good. Half this file is in that state.
+Issuers Without Appeal Data =
+CALCULATE ( COUNTROWS ( fct_issuer ), fct_issuer[has_appeal_data] = 0 )
+
+% Without Appeal Data =
+DIVIDE ( [Issuers Without Appeal Data], [Issuers Total] )
+
+
+// ---------------------------------------------------------------------------
+// 5. DENIAL REASON MIX  (needs the database - see BUILD_STEPS.md step 1)
+// ---------------------------------------------------------------------------
+
+Denials by Reason = SUM ( fct_denial_reason[denials] )
+
+// Share computed against the sum of the reason columns, NOT against the
+// headline denial count: the two do not always reconcile in the source file,
+// and dividing by the wrong denominator would quietly produce shares that
+// don't sum to 100%.
+% of Reason Mix =
+DIVIDE (
+    [Denials by Reason],
+    CALCULATE ( [Denials by Reason], REMOVEFILTERS ( dim_reason ) )
+)
+
+// Clinical vs administrative is the operationally interesting split: an
+// issuer denying mostly on paperwork is a different problem from one denying
+// on medical necessity.
+% Clinical Denials =
+DIVIDE (
+    CALCULATE ( [Denials by Reason], dim_reason[reason_group] = "Clinical" ),
+    CALCULATE ( [Denials by Reason], REMOVEFILTERS ( dim_reason ) )
+)
+
+
+// ---------------------------------------------------------------------------
+// 6. FORMATTING HELPERS
+// ---------------------------------------------------------------------------
+
+// Drive conditional formatting from the tier so colour carries meaning
+// consistently across every visual. Format by -> Field value.
+Tier Colour =
+SWITCH (
+    SELECTEDVALUE ( fct_issuer[tier] ),
+    "Elevated and overturned on appeal", "#B3261E",
+    "Extreme, no appeal data",           "#E08B00",
+    "Extreme denial rate",               "#E08B00",
+    "Elevated, not corroborated",        "#8A8A8E",
+    "#C9C9CE"
+)
+
+// One-line headline for a card.
+Headline =
+VAR f = [Findings]
+VAR n = [Issuers Analysed]
+RETURN
+    f & " findings from " & n & " insurers analysed"

@@ -1,0 +1,4 @@
+﻿market,issuers_total,issuers_eligible,analysed,excluded_reason,median_denial_rate,median_denial_rate_scoring,median_overturn_rate,issuers_with_overturn_rate
+Individual QHP,172,170,1,,0.18317159880533737,0.18396390101299945,0.42506592594144643,150
+Individual SADP,149,114,1,,0.3225184145913714,0.30294300241376493,0.4430379746835443,5
+SHOP,5,5,0,fewer than 20 eligible issuers,0.17869233185844605,0.17869233185844605,0.43243243243243246,5

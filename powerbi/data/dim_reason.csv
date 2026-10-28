@@ -1,0 +1,11 @@
+﻿reason_key,reason,reason_group
+not_medically_necessary,Not medically necessary,Clinical
+experimental,Experimental or investigational,Clinical
+behavioral_health,Behavioral health,Clinical
+service_excluded,Service excluded from plan,Benefit design
+benefit_limit_reached,Benefit limit reached,Benefit design
+out_of_network,Out of network,Benefit design
+referral_required,Referral required,Administrative
+member_not_covered,Member not covered,Administrative
+administrative,Administrative,Administrative
+other_reason,Other,Other
